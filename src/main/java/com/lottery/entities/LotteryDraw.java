@@ -1,4 +1,4 @@
-package com.lottery;
+package com.lottery.entities;
 
 import lombok.Data;
 import lombok.Getter;
@@ -25,7 +25,7 @@ public class LotteryDraw {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private Timestamp drawTime;
     private DrawType drawType;
     private int numbers;

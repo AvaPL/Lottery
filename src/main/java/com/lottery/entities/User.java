@@ -1,4 +1,4 @@
-package com.lottery;
+package com.lottery.entities;
 
 import lombok.Data;
 
@@ -10,7 +10,7 @@ import java.util.List;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private String username;
     private String password;
     @OneToMany(mappedBy = "user")

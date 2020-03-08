@@ -1,4 +1,4 @@
-package com.lottery;
+package com.lottery.entities;
 
 import lombok.Data;
 
@@ -11,7 +11,7 @@ import java.util.List;
 public class Coupon {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private Timestamp betTime;
     @OneToMany(mappedBy = "coupon")
     private List<Entry> entries;

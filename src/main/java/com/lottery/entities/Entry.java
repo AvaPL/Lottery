@@ -1,4 +1,4 @@
-package com.lottery;
+package com.lottery.entities;
 
 import lombok.Data;
 
@@ -9,7 +9,7 @@ import javax.persistence.*;
 public class Entry {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private int numbers;
     @ManyToOne //TODO: Might be not optimal (eager fetch).
     @JoinColumn(name = "coupon_id")
