@@ -1,6 +1,6 @@
 package com.lottery.converters;
 
-import com.lottery.LotteryDraw;
+import com.lottery.entities.LotteryDraw;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
