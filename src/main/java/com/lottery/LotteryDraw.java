@@ -4,21 +4,13 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.List;
 
 @Entity
 @Data
 public class LotteryDraw {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    private Timestamp drawTime;
-    private DrawType drawType;
-    private int numbers;
 
     @RequiredArgsConstructor
     @Getter
@@ -31,6 +23,13 @@ public class LotteryDraw {
         private final float entryPriceEuro;
     }
 
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    private Timestamp drawTime;
+    private DrawType drawType;
+    private int numbers;
+    @OneToMany(mappedBy = "lotteryDraw")
+    private List<Entry> entries;
 }
 

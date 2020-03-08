@@ -2,10 +2,8 @@ package com.lottery;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -15,6 +13,8 @@ public class User {
     private long id;
     private String username;
     private String password;
+    @OneToMany(mappedBy = "user")
+    private List<Coupon> coupons;
 }
 
 
