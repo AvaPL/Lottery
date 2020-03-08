@@ -2,10 +2,7 @@ package com.lottery;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
@@ -13,7 +10,8 @@ import java.sql.Timestamp;
 public class Coupon {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    private int userId;
+    private long id;
+    @ManyToOne
+    private User user;
     private Timestamp betTime;
 }

@@ -15,7 +15,7 @@ import java.sql.Timestamp;
 public class LotteryDraw {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
     private Timestamp drawTime;
     private DrawType drawType;
     private int numbers;
@@ -28,7 +28,7 @@ public class LotteryDraw {
         EURO_JACKPOT(5),
         MULTI_MULTI(3);
 
-        private final float entryPrice;
+        private final float entryPriceEuro;
     }
 
 
