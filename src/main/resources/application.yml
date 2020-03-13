@@ -8,9 +8,7 @@ spring:
     password: root
     initialization-mode: always
   jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    show-sql: true
     hibernate:
       ddl-auto: create-drop
-    properties:
-      hibernate:
-        jdbc:
-          time_zone: UTC
