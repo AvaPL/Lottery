@@ -10,12 +10,12 @@ import java.util.List;
 @Data
 public class Coupon {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Long id;
     private Timestamp betTime;
     @OneToMany(mappedBy = "coupon")
     private List<Entry> entries;
     @ManyToOne //TODO: Might be not optimal (eager fetch).
-    @JoinColumn(name = "user_id")
-    private User user;
+    @JoinColumn(name = "account_id")
+    private Account account;
 }

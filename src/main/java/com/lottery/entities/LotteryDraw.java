@@ -24,7 +24,7 @@ public class LotteryDraw {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Long id;
     private Timestamp drawTime;
     private DrawType drawType;
