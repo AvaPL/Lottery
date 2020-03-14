@@ -7,13 +7,13 @@ import java.util.List;
 
 @Entity
 @Data
-public class User {
+public class Account {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Long id;
     private String username;
     private String password;
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "account")
     private List<Coupon> coupons;
 }
 

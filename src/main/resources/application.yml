@@ -2,3 +2,14 @@ spring:
   data:
     rest:
       base-path: /api
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1521:XE
+    username: lottery
+    password: lottery
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+server:
+  port: 8008

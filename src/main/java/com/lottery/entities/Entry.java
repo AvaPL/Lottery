@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Data
 public class Entry {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Long id;
     private int numbers;
     @ManyToOne //TODO: Might be not optimal (eager fetch).
