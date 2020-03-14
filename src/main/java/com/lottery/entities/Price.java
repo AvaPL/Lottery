@@ -2,9 +2,7 @@ package com.lottery.entities;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Data
@@ -12,7 +10,9 @@ public class Price {
     @Id
     @GeneratedValue
     private Long id;
-    private LotteryDraw lotteryDraw;
     private int hitsCount;
     private float price;
+    @ManyToOne
+    @JoinColumn(name = "lottery_draw_id")
+    private LotteryDraw lotteryDraw;
 }
