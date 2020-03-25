@@ -1,0 +1,26 @@
+.nav-brand-text {
+    font-size: 40px;
+}
+
+.nav-entry-text {
+    font-size: 30px;
+    float: right;
+    color: #57AEFF;
+}
+
+.nav-entry-text:hover {
+     color: #0079FB;
+ }
+
+.nav-log-in-text {
+    font-size: 30px;
+}
+
+.nav-button{
+    width: 65%;
+    float: right;
+}
+
+.nav-bar{
+    background-color: white;
+}
