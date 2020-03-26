@@ -14,10 +14,10 @@ class NavBar extends Component {
                         <Nav.Link href="#"><span className="nav-entry-text">Lotteries</span></Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                        <Nav.Link href="#"><span className="nav-entry-text">My Coupons</span></Nav.Link>
+                        <Nav.Link href="#"><span className="nav-entry-text">My&nbsp;Coupons</span></Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                        <Button className="nav-button"><span className="nav-log-in-text">LOG IN</span></Button>
+                        <Button className="nav-button"><span className="nav-log-in-text">LOG&nbsp;IN</span></Button>
                     </Nav.Item>
                 </Nav>
             </Navbar>
