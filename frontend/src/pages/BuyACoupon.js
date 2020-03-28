@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
-import './MyCoupons.css'
+import './BuyACoupon.css'
 
 class MyCoupons extends Component {
     render() {
         return (
-            <div className="MyCoupons">
+            <div className="BuyACoupon">
                 <div className="box rounded">
-                    <span className="my-coupons-bar">MY COUPONS</span>
+                    <span className="buy-a-coupon-bar">BUY A COUPON</span>
                 </div>
             </div>
         );
