@@ -1,3 +1,27 @@
 .MainPage {
-    text-align: center;
+}
+
+.center {
+    top: 50%;
+    transform: translateY(50%);
+}
+
+.quote {
+    font-family: "Edwardian Script ITC";
+    font-weight: bold;
+    font-size: 144px;
+    line-height: 180px;
+    letter-spacing: -0.015em;
+    background: -webkit-linear-gradient(#57AEFF, #75bdff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.quote-author {
+    font-family: "Edwardian Script ITC";
+    font-weight: bold;
+    font-size: 144px;
+    line-height: 180px;
+    letter-spacing: -0.015em;
+    color: white;
 }
