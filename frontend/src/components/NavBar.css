@@ -9,18 +9,18 @@
 }
 
 .nav-entry-text:hover {
-     color: #0079FB;
- }
+    color: #0079FB;
+}
 
 .nav-log-in-text {
     font-size: 30px;
 }
 
-.nav-button{
+.nav-button {
     width: 65%;
     float: right;
 }
 
-.nav-bar{
+.nav-bar {
     background-color: white;
 }
