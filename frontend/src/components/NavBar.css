@@ -5,11 +5,11 @@
 .nav-entry-text {
     font-size: 30px;
     float: right;
-    color: #57AEFF;
+    color: #007bff;
 }
 
 .nav-entry-text:hover {
-    color: #0079FB;
+    color: #0069d9;
 }
 
 .nav-log-in-text {
