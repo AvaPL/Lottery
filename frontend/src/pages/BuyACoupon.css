@@ -1,4 +1,4 @@
-.MyCoupons {
+.BuyACoupon {
     text-align: center;
 }
 
@@ -10,7 +10,7 @@
     margin: 20px auto 0;
 }
 
-.my-coupons-bar {
+.buy-a-coupon-bar {
     font-family: Roboto, sans-serif;
     font-style: normal;
     font-weight: normal;
@@ -20,5 +20,4 @@
     letter-spacing: -0.015em;
 
     color: #FFFFFF;
-
 }

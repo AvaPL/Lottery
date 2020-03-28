@@ -5,6 +5,7 @@ import {Route} from "react-router";
 import MainPage from "./MainPage";
 import Lotteries from "./Lotteries";
 import MyCoupons from "./MyCoupons";
+import BuyACoupon from "./BuyACoupon";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
             <Route exact path="/" component={MainPage}/>
             <Route exact path="/lotteries" component={Lotteries}/>
             <Route exact path="/my-coupons" component={MyCoupons}/>
+            <Route exact path="/buy-a-coupon" component={BuyACoupon}/>
         </div>
     );
 }
