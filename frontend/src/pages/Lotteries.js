@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import './Lotteries.css'
-import Button from "react-bootstrap/Button";
 
 class Lotteries extends Component {
     render() {
@@ -102,7 +101,7 @@ class Lotteries extends Component {
                         </div>
                     </div>
                 </div>
-                <p><a href="/buy-a-coupon" className="btn btn-buy m-3"><span className="buy-a-coupon-text">BUY A COUPON</span></a></p>
+                <p><a href="/buy-a-coupon" className="btn btn-buy mt-3"><span className="buy-a-coupon-text">BUY A COUPON</span></a></p>
             </div>
         );
     }
