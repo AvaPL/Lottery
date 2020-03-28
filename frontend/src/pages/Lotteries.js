@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import './Lotteries.css'
+import './TableView.css'
 
 class Lotteries extends Component {
     render() {
         return (
             <div className="Lotteries">
-                <div className="box">
-                    <span className="lotteries-bar">LOTTERIES</span>
+                <div className="header-box">
+                    <span className="bar-text">LOTTERIES</span>
                 </div>
                 <div className="scroll-table-header">
                     <div className="row">
@@ -101,7 +102,7 @@ class Lotteries extends Component {
                         </div>
                     </div>
                 </div>
-                <p><a href="/buy-a-coupon" className="btn btn-buy mt-3"><span className="buy-a-coupon-text">BUY A COUPON</span></a></p>
+                <p><a href="/buy-a-coupon" className="btn btn-buy mt-3"><span className="btn-buy-text">BUY A COUPON</span></a></p>
             </div>
         );
     }
