@@ -43,3 +43,28 @@
     letter-spacing: -0.015em;
     color: #0085FF;
 }
+
+.scroll-table {
+    background-color: white;
+    width: 90%;
+    height: calc(100vh - 400px);
+    padding-top: 15px;
+    margin: 0 auto;
+    border-radius: 0 0 10px 10px;
+}
+
+.buy-a-coupon-button {
+    width: 30%;
+    height: 100px;
+}
+
+.buy-a-coupon-text {
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 56px;
+    text-align: center;
+    letter-spacing: -0.015em;
+    color: #FFFFFF;
+}
