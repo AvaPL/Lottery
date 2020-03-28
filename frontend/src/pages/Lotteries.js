@@ -22,81 +22,87 @@ class Lotteries extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="scroll-table overflow-auto flex-grow-1">
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>
+                <div className="scroll-table overflow-auto scrollbar">
+                    <div className="scroll-table-entry">
+                        <div className="row">
+                            <div className="col-sm">
+                                <span className="column-entry">lotto</span>
+                            </div>
+                            <div className="col-sm">
+                                <span className="column-entry">26.03.2020 15:00</span>
+                            </div>
+                            <div className="col-sm">
+                                <span className="column-entry">3 000 000 €</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="scroll-table-entry">
+                        <div className="row">
+                            <div className="col-sm">
+                                <span className="column-entry">lotto</span>
+                            </div>
+                            <div className="col-sm">
+                                <span className="column-entry">26.03.2020 15:00</span>
+                            </div>
+                            <div className="col-sm">
+                                <span className="column-entry">3 000 000 €</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="scroll-table-entry">
+                        <div className="row">
+                            <div className="col-sm">
+                                <span className="column-entry">lotto</span>
+                            </div>
+                            <div className="col-sm">
+                                <span className="column-entry">26.03.2020 15:00</span>
+                            </div>
+                            <div className="col-sm">
+                                <span className="column-entry">3 000 000 €</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="scroll-table-entry">
+                        <div className="row">
+                            <div className="col-sm">
+                                <span className="column-entry">lotto</span>
+                            </div>
+                            <div className="col-sm">
+                                <span className="column-entry">26.03.2020 15:00</span>
+                            </div>
+                            <div className="col-sm">
+                                <span className="column-entry">3 000 000 €</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="scroll-table-entry">
+                        <div className="row">
+                            <div className="col-sm">
+                                <span className="column-entry">lotto</span>
+                            </div>
+                            <div className="col-sm">
+                                <span className="column-entry">26.03.2020 15:00</span>
+                            </div>
+                            <div className="col-sm">
+                                <span className="column-entry">3 000 000 €</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="scroll-table-entry">
+                        <div className="row">
+                            <div className="col-sm">
+                                <span className="column-entry">lotto</span>
+                            </div>
+                            <div className="col-sm">
+                                <span className="column-entry">26.03.2020 15:00</span>
+                            </div>
+                            <div className="col-sm">
+                                <span className="column-entry">3 000 000 €</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <Button className="buy-a-coupon-button btn-primary m-3"><span className="buy-a-coupon-text">BUY&nbsp;A&nbsp;COUPON</span></Button>
+                <p><a href="/buy-a-coupon" className="btn btn-buy m-3"><span className="buy-a-coupon-text">BUY A COUPON</span></a></p>
             </div>
         );
     }
