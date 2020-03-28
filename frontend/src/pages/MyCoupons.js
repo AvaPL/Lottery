@@ -5,7 +5,7 @@ class MyCoupons extends Component {
     render() {
         return (
             <div className="MyCoupons">
-                <div className="box rounded">
+                <div className="box">
                     <span className="my-coupons-bar">MY COUPONS</span>
                 </div>
             </div>
