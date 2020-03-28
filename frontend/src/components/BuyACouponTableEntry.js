@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import './MyCouponsTableEntry.css'
-import '../stylesheets/TableView.css';
+import './BuyACouponTableEntry.css'
+import '../stylesheets/TableView.css'
 
-class MyCouponsTableEntry extends Component {
+class BuyACouponTableEntry extends Component {
     render() {
         return (
             <div className="scroll-table-entry">
@@ -14,13 +14,7 @@ class MyCouponsTableEntry extends Component {
                         <span className="column-entry">{this.props.type}</span>
                     </div>
                     <div className="col-sm">
-                        <span className="column-entry">{this.props.lotteryDate}</span>
-                    </div>
-                    <div className="col-sm">
-                        <span className="column-entry">{this.props.entries}</span>
-                    </div>
-                    <div className="col-sm">
-                        <span className="column-entry">{this.props.priceWon}</span>
+                        <span className="column-entry">{this.props.numbers}</span>
                     </div>
                 </div>
             </div>
@@ -28,4 +22,4 @@ class MyCouponsTableEntry extends Component {
     }
 }
 
-export default MyCouponsTableEntry;
+export default BuyACouponTableEntry;
