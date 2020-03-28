@@ -5,6 +5,7 @@ import {Route} from "react-router";
 import MainPage from "./MainPage";
 import Lotteries from "./Lotteries";
 import MyCoupons from "./MyCoupons";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
     return (

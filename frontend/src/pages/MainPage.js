@@ -1,6 +1,5 @@
 import React from 'react';
 import './MainPage.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 class MainPage extends React.Component {
     render() {
