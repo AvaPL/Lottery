@@ -1,0 +1,27 @@
+.btn-buy {
+    color: #57AEFF !important;
+    border: 7px solid white !important;
+    border-radius: 10px !important;
+    width: 30%;
+    height: 100px;
+    padding-top: 15px !important;
+}
+
+.btn-buy:hover,
+.btn-buy:active,
+.btn-buy:focus,
+.btn-buy.active {
+    background: #5c9af0 !important;
+    border-color: #f0f0f0 !important;
+}
+
+.btn-buy-text {
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 42px;
+    line-height: 56px;
+    text-align: center;
+    letter-spacing: -0.015em;
+    color: #FFFFFF;
+}

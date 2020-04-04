@@ -3,6 +3,7 @@ import './MyCoupons.css'
 import Header from "../components/Header";
 import MyCouponsTableHeader from "../components/MyCouponsTableHeader";
 import MyCouponsTable from "../components/MyCouponsTable";
+import BuyACouponButton from "../components/BuyACouponButton";
 
 class MyCoupons extends Component {
     render() {
@@ -11,8 +12,7 @@ class MyCoupons extends Component {
                 <Header text="MY COUPONS"/>
                 <MyCouponsTableHeader/>
                 <MyCouponsTable/>
-                <p><a href="/buy-a-coupon" className="btn btn-buy mt-3"><span
-                    className="btn-buy-text">BUY A COUPON</span></a></p>
+                <BuyACouponButton/>
             </div>
         );
     }
