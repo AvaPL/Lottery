@@ -20,7 +20,7 @@ class BuyACouponTableEntry extends Component {
                         </div>
                     </div>
                     <div className="delete-button">
-                        <Button className="btn-danger btn-block delete-button"/>
+                        <span className="delete-button-text">-</span>
                     </div>
                 </div>
             </div>

@@ -4,12 +4,13 @@
 
 .delete-button-text {
     font-weight: bold;
-    font-size: 48px;
+    font-size: 60px;
+    color: lightgray;
 }
 
 .delete-button {
     width: 40px;
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: -30px;
+    right: 5px;
 }
