@@ -1,29 +1,15 @@
 import React, {Component} from 'react';
 import './BuyACoupon.css'
 import BuyACouponTableEntry from "../components/BuyACouponTableEntry";
+import Header from "../components/Header";
+import BuyACouponTableHeader from "../components/BuyACouponTableHeader";
 
 class MyCoupons extends Component {
     render() {
         return (
-            <div>
-                <div className="BuyACoupon">
-                    <div className="header-box">
-                        <span className="bar-text">BUY A COUPON</span>
-                    </div>
-                </div>
-                <div className="scroll-table-header">
-                    <div className="row">
-                        <div className="col-sm">
-                            <span className="column-header">no.</span>
-                        </div>
-                        <div className="col-sm">
-                            <span className="column-header">type</span>
-                        </div>
-                        <div className="col-sm">
-                            <span className="column-header">numbers</span>
-                        </div>
-                    </div>
-                </div>
+            <div className="BuyACoupon">
+                <Header text="BUY A COUPON"/>
+                <BuyACouponTableHeader/>
                 <div className="scroll-table overflow-auto scrollbar">
                     <BuyACouponTableEntry id="1" type="lotto" numbers="1 8 15"/>
                     <BuyACouponTableEntry id="2" type="mini lotto" numbers="1 3 4"/>

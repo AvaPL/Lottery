@@ -2,27 +2,15 @@ import React, {Component} from 'react';
 import './Lotteries.css'
 import '../stylesheets/TableView.css'
 import LotteriesTableEntry from "../components/LotteriesTableEntry";
+import Header from "../components/Header";
+import LotteriesTableHeader from "../components/LotteriesTableHeader";
 
 class Lotteries extends Component {
     render() {
         return (
             <div className="Lotteries">
-                <div className="header-box">
-                    <span className="bar-text">LOTTERIES</span>
-                </div>
-                <div className="scroll-table-header">
-                    <div className="row">
-                        <div className="col-sm">
-                            <span className="column-header">type</span>
-                        </div>
-                        <div className="col-sm">
-                            <span className="column-header">next&nbsp;draw</span>
-                        </div>
-                        <div className="col-sm">
-                            <span className="column-header">price&nbsp;to&nbsp;win</span>
-                        </div>
-                    </div>
-                </div>
+                <Header text="LOTTERIES"/>
+                <LotteriesTableHeader/>
                 <div className="scroll-table overflow-auto scrollbar">
                     <LotteriesTableEntry type="lotto" date="26.03.2020" price="3 000 000 €"/>
                     <LotteriesTableEntry type="multi multi" date="31.03.2020" price="2 000 000 €"/>
