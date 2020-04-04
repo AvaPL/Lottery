@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.List;
 
 @Repository
 public class JdbcLotteryProjectionRepository implements LotteryProjectionRepository {
@@ -20,8 +21,8 @@ public class JdbcLotteryProjectionRepository implements LotteryProjectionReposit
     }
 
     @Override
-    public LotteryProjection getCurrentLotteries() {
-        return jdbc.queryForObject("select DT.name as type, draw_time as next_draw, P.price\n" +
+    public List<LotteryProjection> getCurrentLotteries() {
+        return jdbc.query("select DT.name as type, draw_time as next_draw, P.price\n" +
                                    "from LOTTERY_DRAW LD\n" +
                                    "         join DRAW_TYPE DT on LD.DRAW_TYPE_ID = DT.ID\n" +
                                    "         join (select LD.id, count(*) * MAX(dt.ENTRY_COST) as price\n" +
