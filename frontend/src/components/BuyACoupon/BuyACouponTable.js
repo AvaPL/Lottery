@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import BuyACouponTableEntry from "./BuyACouponTableEntry";
-import "../stylesheets/TableView.css";
+import "../../stylesheets/TableView.css";
 import Button from "react-bootstrap/Button";
 import "./BuyACouponTable.css"
 

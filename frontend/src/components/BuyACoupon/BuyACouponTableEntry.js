@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import './BuyACouponTableEntry.css'
-import '../stylesheets/TableView.css'
+import './BuyACouponTableEntry.css';
+import '../../stylesheets/TableView.css';
 
 class BuyACouponTableEntry extends Component {
     render() {

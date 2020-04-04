@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import './Lotteries.css'
 import '../stylesheets/TableView.css'
-import Header from "../components/Header";
-import LotteriesTableHeader from "../components/LotteriesTableHeader";
-import LotteriesTable from "../components/LotteriesTable";
-import BuyACouponButton from "../components/BuyACouponButton";
+import Header from "../components/Header/Header";
+import LotteriesTableHeader from "../components/Lotteries/LotteriesTableHeader";
+import LotteriesTable from "../components/Lotteries/LotteriesTable";
+import BuyACouponButton from "../components/BuyACoupon/BuyACouponButton";
 
 class Lotteries extends Component {
     render() {
