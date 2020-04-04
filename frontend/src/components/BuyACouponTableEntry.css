@@ -1,3 +1,15 @@
 .BuyACouponTableEntry {
     text-align: center;
 }
+
+.delete-button-text {
+    font-weight: bold;
+    font-size: 48px;
+}
+
+.delete-button {
+    width: 40px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
