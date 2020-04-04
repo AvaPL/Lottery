@@ -1,0 +1,12 @@
+.add-button-text {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.add-button {
+    height: 40px;
+    width: 60px;
+    float: right;
+    margin-right: 30px;
+    margin-bottom: 30px;
+}

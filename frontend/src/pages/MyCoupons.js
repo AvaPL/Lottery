@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import './MyCoupons.css'
-import Header from "../components/Header";
-import MyCouponsTableHeader from "../components/MyCouponsTableHeader";
-import MyCouponsTable from "../components/MyCouponsTable";
-import BuyACouponButton from "../components/BuyACouponButton";
+import Header from "../components/Header/Header";
+import MyCouponsTableHeader from "../components/MyCoupons/MyCouponsTableHeader";
+import MyCouponsTable from "../components/MyCoupons/MyCouponsTable";
+import BuyACouponButton from "../components/BuyACoupon/BuyACouponButton";
 
 class MyCoupons extends Component {
     render() {

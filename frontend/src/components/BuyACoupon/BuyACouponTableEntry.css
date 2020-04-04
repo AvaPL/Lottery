@@ -1,0 +1,21 @@
+.BuyACouponTableEntry {
+    text-align: center;
+}
+
+.delete-button-text {
+    font-weight: bold;
+    font-size: 60px;
+    color: lightgray;
+    cursor: default;
+}
+
+.delete-button-text:hover {
+    color: gray;
+}
+
+.delete-button {
+    width: 40px;
+    position: absolute;
+    top: -30px;
+    right: 5px;
+}

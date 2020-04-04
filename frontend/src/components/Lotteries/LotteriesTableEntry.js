@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import '../stylesheets/TableView.css'
+import '../../stylesheets/TableView.css';
 
 class LotteriesTableEntry extends Component {
 
@@ -8,13 +8,13 @@ class LotteriesTableEntry extends Component {
             <div className="scroll-table-entry">
                 <div className="row">
                     <div className="col-sm">
-                        <span className="column-entry">{this.props.type}</span>
+                        <span className="column-entry">{this.props.entry.type}</span>
                     </div>
                     <div className="col-sm">
-                        <span className="column-entry">{this.props.date}</span>
+                        <span className="column-entry">{this.props.entry.nextDraw}</span>
                     </div>
                     <div className="col-sm">
-                        <span className="column-entry">{this.props.price}</span>
+                        <span className="column-entry">{this.props.entry.price}</span>
                     </div>
                 </div>
             </div>

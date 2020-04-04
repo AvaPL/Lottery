@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import "../stylesheets/TableView.css";
+import "../../stylesheets/TableView.css";
 
-class MyCouponsTableHeader extends Component {
+class BuyACouponTableHeader extends Component {
     render() {
         return (
             <div className="scroll-table-header">
@@ -13,13 +13,7 @@ class MyCouponsTableHeader extends Component {
                         <span className="column-header">type</span>
                     </div>
                     <div className="col-sm">
-                        <span className="column-header">lottery&nbsp;date</span>
-                    </div>
-                    <div className="col-sm">
-                        <span className="column-header">entries</span>
-                    </div>
-                    <div className="col-sm">
-                        <span className="column-header">price&nbsp;won</span>
+                        <span className="column-header">numbers</span>
                     </div>
                 </div>
             </div>
@@ -27,4 +21,4 @@ class MyCouponsTableHeader extends Component {
     }
 }
 
-export default MyCouponsTableHeader;
+export default BuyACouponTableHeader;
