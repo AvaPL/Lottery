@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import './BuyACouponTableEntry.css'
 import '../stylesheets/TableView.css'
-import Button from 'react-bootstrap/Button'
 
 class BuyACouponTableEntry extends Component {
     render() {
