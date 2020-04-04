@@ -4,7 +4,7 @@ import '../stylesheets/TableView.css'
 import Header from "../components/Header/Header";
 import LotteriesTableHeader from "../components/Lotteries/LotteriesTableHeader";
 import LotteriesTable from "../components/Lotteries/LotteriesTable";
-import BuyACouponButton from "../components/BuyACoupon/BuyACouponButton";
+import BuyACouponButton from "../components/BuyACouponButton/BuyACouponButton";
 
 class Lotteries extends Component {
     render() {

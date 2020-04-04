@@ -3,7 +3,7 @@ import './BuyACoupon.css'
 import Header from "../components/Header/Header";
 import BuyACouponTableHeader from "../components/BuyACoupon/BuyACouponTableHeader";
 import BuyACouponTable from "../components/BuyACoupon/BuyACouponTable";
-import "../components/BuyACoupon/BuyACouponButton.css";
+import "../components/BuyACouponButton/BuyACouponButton.css";
 
 class MyCoupons extends Component {
     render() {
