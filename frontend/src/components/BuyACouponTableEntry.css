@@ -6,6 +6,11 @@
     font-weight: bold;
     font-size: 60px;
     color: lightgray;
+    cursor: default;
+}
+
+.delete-button-text:hover {
+    color: gray;
 }
 
 .delete-button {

@@ -9,17 +9,17 @@ class BuyACouponTableEntry extends Component {
                 <div className="scroll-table-entry">
                     <div className="row">
                         <div className="col-sm">
-                            <span className="column-entry">{this.props.id}</span>
+                            <span className="column-entry">{this.props.entry.id}</span>
                         </div>
                         <div className="col-sm">
-                            <span className="column-entry">{this.props.type}</span>
+                            <span className="column-entry">{this.props.entry.type}</span>
                         </div>
                         <div className="col-sm">
-                            <span className="column-entry">{this.props.numbers}</span>
+                            <span className="column-entry">{this.props.entry.numbers}</span>
                         </div>
                     </div>
                     <div className="delete-button">
-                        <span className="delete-button-text">-</span>
+                        <span className="delete-button-text" onClick={() => this.props.onDelete(this.props.entry.id)}>-</span>
                     </div>
                 </div>
             </div>

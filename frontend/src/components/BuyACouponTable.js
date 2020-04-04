@@ -15,14 +15,30 @@ class BuyACouponTable extends Component {
         ]
     };
 
+    handleDelete = id => {
+        const entries = this.state.entries.filter(e => e.id !== id);
+        entries.forEach((e, i) => e.id = i + 1);
+        this.setState({entries});
+    };
+
+    handleAdd = () => {
+        const entries = this.state.entries.concat({
+            id: this.state.entries[this.state.entries.length - 1].id + 1,
+            type: "lotto",
+            numbers: "1 2 3"
+        });
+        this.setState({entries});
+    };
+
     render() {
         return (
             <div className="scroll-table overflow-auto scrollbar">
                 {this.state.entries.map(entry => (
-                    <BuyACouponTableEntry key={entry.id} id={entry.id} type={entry.type} numbers={entry.numbers}/>
+                    <BuyACouponTableEntry key={entry.id} onDelete={this.handleDelete} entry={entry}/>
                 ))}
                 <div className="add-button" style={{position: "relative"}}>
-                    <Button className="btn-success btn-block"><span className="add-button-text">+</span></Button>
+                    <Button className="btn-success btn-block" onClick={this.handleAdd}><span
+                        className="add-button-text">+</span></Button>
                 </div>
             </div>
         );
