@@ -10,26 +10,40 @@ class LotteriesTable extends Component {
     };
 
     componentDidMount() {
-        fetch("http://localhost:8008/api/current").then(res => res.json()).then(result => {
-            result.forEach((e, i) => {
-                e.id = i + 1;
-                const date = new Date(e.nextDraw);
-                e.nextDraw = date.toLocaleString('en-GB', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                    hour: 'numeric',
-                    minute: 'numeric'
-                });
+        this.fetchCurrentLotteries().then(this.processLotteries(), this.handleError())
+    }
+
+    fetchCurrentLotteries() {
+        return fetch("http://localhost:8008/api/currentLotterySummaries")
+            .then(res => res.json()).then(res => res._embedded.currentLotterySummaries);
+    }
+
+    formatLottery() {
+        return (e, i) => {
+            e.id = i + 1;
+            const date = new Date(e.nextDraw);
+            e.nextDraw = date.toLocaleString('en-GB', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: 'numeric',
+                minute: 'numeric'
             });
-            this.setState({isLoaded: true, entries: result});
-        }, (error) => {
-            this.setState({
-                isLoaded: true,
-                error
-            });
+        };
+    }
+
+    processLotteries() {
+        return lotteries => {
+            lotteries.forEach(this.formatLottery());
+            this.setState({isLoaded: true, entries: lotteries});
+        };
+    }
+
+    handleError() {
+        return error => {
+            this.setState({isLoaded: true, error});
             console.log(error);
-        })
+        };
     }
 
     render() {
