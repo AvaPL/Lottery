@@ -20,8 +20,7 @@ import java.sql.Timestamp;
            "                        join DRAW_TYPE DT on LD.DRAW_TYPE_ID = DT.ID\n" +
            "                        join ENTRY E on LD.ID = E.LOTTERY_DRAW_ID\n" +
            "               where DRAW_TIME > SYSDATE\n" +
-           "               group by LD.id) P on LD.id = P.id\n" +
-           "where DRAW_TIME > SYSDATE")
+           "               group by LD.id) P on LD.id = P.id")
 public class CurrentLotterySummary {
     @Id
     @GeneratedValue
