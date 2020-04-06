@@ -6,6 +6,7 @@ import MainPage from "./MainPage";
 import Lotteries from "./Lotteries";
 import MyCoupons from "./MyCoupons";
 import BuyACoupon from "./BuyACoupon";
+import LatestDraws from "./LatestDraws";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
             <Route exact path="/lotteries" component={Lotteries}/>
             <Route exact path="/my-coupons" component={MyCoupons}/>
             <Route exact path="/buy-a-coupon" component={BuyACoupon}/>
+            <Route exact path="/latest-draws" component={LatestDraws}/>
         </div>
     );
 }
