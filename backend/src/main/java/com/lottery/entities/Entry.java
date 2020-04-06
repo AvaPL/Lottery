@@ -10,7 +10,8 @@ public class Entry {
     @Id
     @GeneratedValue
     private Long id;
-    private int numbers;
+    @Column(columnDefinition = "LONGINTEGER")
+    private long numbers;
     private int hitsCount;
     @ManyToOne //TODO: Might be not optimal (eager fetch).
     @JoinColumn(name = "coupon_id")

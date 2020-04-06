@@ -15,7 +15,8 @@ public class LotteryDraw {
     @GeneratedValue
     private Long id;
     private Timestamp drawTime;
-    private int numbers;
+    @Column(columnDefinition = "LONGINTEGER")
+    private long numbers;
     @OneToMany(mappedBy = "lotteryDraw")
     private List<Entry> entries;
     @OneToMany(mappedBy = "lotteryDraw")
