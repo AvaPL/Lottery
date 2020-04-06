@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import LotteriesTableEntry from "./LotteriesTableEntry";
 import "../../stylesheets/TableView.css";
+import LatestDrawsTableEntry from "../LatestDraws/LatestDrawsTableEntry";
 
 class LotteriesTable extends Component {
     state = {
@@ -47,19 +48,20 @@ class LotteriesTable extends Component {
     }
 
     render() {
-        //TODO: Make errors and loadings prettier.
+        return (
+            <div className="scroll-table overflow-auto scrollbar">
+                {this.getEntries()}
+            </div>
+        )
+    }
+
+    getEntries() {
         if (this.state.error) {
-            return <span>Error</span>
+            return <span className="error-text">Error</span>;
         } else if (!this.state.isLoaded) {
-            return <span>Loading...</span>
+            return <span className="loading-text">Loading...</span>;
         } else {
-            return (
-                <div className="scroll-table overflow-auto scrollbar">
-                    {this.state.entries.map(entry => (
-                        <LotteriesTableEntry key={entry.id} entry={entry}/>
-                    ))}
-                </div>
-            )
+            return this.state.entries.map(entry => <LotteriesTableEntry key={entry.id} entry={entry}/>);
         }
     }
 }

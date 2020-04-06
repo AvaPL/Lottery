@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import "./LatestDrawsTable.css";
 import "../../stylesheets/TableView.css";
 import LatestDrawsTableEntry from "./LatestDrawsTableEntry";
-import LotteriesTableEntry from "../Lotteries/LotteriesTableEntry";
 
 class LatestDrawsTable extends Component {
     state = {
@@ -31,7 +30,7 @@ class LatestDrawsTable extends Component {
                 hour: 'numeric',
                 minute: 'numeric'
             });
-            console.log(e);
+            e.numbers = e.numbers.join(", ");
         };
     }
 
@@ -50,19 +49,20 @@ class LatestDrawsTable extends Component {
     }
 
     render() {
-        //TODO: Make errors and loadings prettier.
+        return (
+            <div className="latest-draws-scroll-table scroll-table overflow-auto scrollbar">
+                {this.getEntries()}
+            </div>
+        )
+    }
+
+    getEntries() {
         if (this.state.error) {
-            return <span>Error</span>
+            return <span className="error-text">Error</span>;
         } else if (!this.state.isLoaded) {
-            return <span>Loading...</span>
+            return <span className="loading-text">Loading...</span>;
         } else {
-            return (
-                <div className="latest-draws-scroll-table scroll-table overflow-auto scrollbar">
-                    {this.state.entries.map(entry => (
-                        <LatestDrawsTableEntry key={entry.id} entry={entry}/>
-                    ))}
-                </div>
-            )
+            return this.state.entries.map(entry => <LatestDrawsTableEntry key={entry.id} entry={entry}/>);
         }
     }
 }
