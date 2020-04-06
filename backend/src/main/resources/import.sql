@@ -17,8 +17,10 @@ INSERT INTO LOTTERY_DRAW (id, draw_time, draw_type_id, numbers) VALUES (4, TO_TI
 INSERT INTO LOTTERY_DRAW (id, draw_time, draw_type_id, numbers) VALUES (5, TO_TIMESTAMP('2020-09-25 06:24:52','YYYY-MM-DD HH24:MI:SS'), 1, 54321);
 INSERT INTO LOTTERY_DRAW (id, draw_time, draw_type_id, numbers) VALUES (6, TO_TIMESTAMP('2020-09-30 22:40:23','YYYY-MM-DD HH24:MI:SS'), 2, 12345);
 
-INSERT INTO PRICE (id, lottery_draw_id, hits_count, price) VALUES (1, 1, 4, 400);
-INSERT INTO PRICE (id, lottery_draw_id, hits_count, price) VALUES (2, 1, 2, 100);
+INSERT INTO PRICE (id, lottery_draw_id, hits_count, price) VALUES (1, 1, 1, 100);
+INSERT INTO PRICE (id, lottery_draw_id, hits_count, price) VALUES (2, 2, 2, 200);
+INSERT INTO PRICE (id, lottery_draw_id, hits_count, price) VALUES (3, 2, 3, 300);
+INSERT INTO PRICE (id, lottery_draw_id, hits_count, price) VALUES (4, 1, 4, 400);
 
 INSERT INTO PRICE_WEIGHT (id, hits_count, weight, draw_type_id) VALUES (1, 4, 1, 1);
 INSERT INTO PRICE_WEIGHT (id, hits_count, weight, draw_type_id) VALUES (2, 5, 10, 1);
