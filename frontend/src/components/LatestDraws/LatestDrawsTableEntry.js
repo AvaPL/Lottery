@@ -7,16 +7,16 @@ class LatestDrawsTableEntry extends Component {
             <div className="scroll-table-entry">
                 <div className="row">
                     <div className="col-sm">
-                        <span className="column-entry">{this.props.type}</span>
+                        <span className="column-entry">{this.props.entry.type}</span>
                     </div>
                     <div className="col-sm">
-                        <span className="column-entry">{this.props.drawDate}</span>
+                        <span className="column-entry">{this.props.entry.drawDate}</span>
                     </div>
                     <div className="col-sm">
-                        <span className="column-entry">{this.props.price}</span>
+                        <span className="column-entry">{this.props.entry.priceWon}</span>
                     </div>
                     <div className="col-sm">
-                        <span className="column-entry">{this.props.numbers}</span>
+                        <span className="column-entry">{this.props.entry.numbers}</span>
                     </div>
                 </div>
             </div>

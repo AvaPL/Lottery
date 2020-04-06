@@ -24,7 +24,7 @@ class LotteriesTable extends Component {
             const date = new Date(e.nextDraw);
             e.nextDraw = date.toLocaleString('en-GB', {
                 year: 'numeric',
-                month: 'long',
+                month: 'numeric',
                 day: 'numeric',
                 hour: 'numeric',
                 minute: 'numeric'
