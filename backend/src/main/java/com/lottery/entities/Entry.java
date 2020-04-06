@@ -10,7 +10,6 @@ public class Entry {
     @Id
     @GeneratedValue
     private Long id;
-    @Column(columnDefinition = "LONGINTEGER")
     private long numbers;
     private int hitsCount;
     @ManyToOne //TODO: Might be not optimal (eager fetch).
