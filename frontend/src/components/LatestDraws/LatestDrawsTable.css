@@ -1,0 +1,7 @@
+.LatestDrawsTable {
+    text-align: center;
+}
+
+.scroll-table {
+    height: calc(100vh - 300px);
+}
