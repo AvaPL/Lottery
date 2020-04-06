@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
-import LotteriesTableEntry from "./LotteriesTableEntry";
+import "./LatestDrawsTable.css";
 import "../../stylesheets/TableView.css";
+import LatestDrawsTableEntry from "./LatestDrawsTableEntry";
+import LotteriesTableEntry from "../Lotteries/LotteriesTableEntry";
 
-class LotteriesTable extends Component {
+class LatestDrawsTable extends Component {
     state = {
         error: null,
         isLoaded: false,
@@ -10,25 +12,26 @@ class LotteriesTable extends Component {
     };
 
     componentDidMount() {
-        this.fetchCurrentLotteries().then(this.processLotteries(), this.handleError())
+        this.fetchLatestDraws().then(this.processLotteries(), this.handleError())
     }
 
-    fetchCurrentLotteries() {
-        return fetch("http://localhost:8008/api/currentLotterySummaries")
-            .then(res => res.json()).then(res => res._embedded.currentLotterySummaries);
+    fetchLatestDraws() {
+        return fetch("http://localhost:8008/api/latestDrawsSummaries")
+            .then(res => res.json()).then(res => res._embedded.latestDrawsSummaries);
     }
 
     formatLottery() {
         return (e, i) => {
             e.id = i + 1;
-            const date = new Date(e.nextDraw);
-            e.nextDraw = date.toLocaleString('en-GB', {
+            const date = new Date(e.drawDate);
+            e.drawDate = date.toLocaleString('en-GB', {
                 year: 'numeric',
                 month: 'numeric',
                 day: 'numeric',
                 hour: 'numeric',
                 minute: 'numeric'
             });
+            console.log(e);
         };
     }
 
@@ -54,9 +57,9 @@ class LotteriesTable extends Component {
             return <span>Loading...</span>
         } else {
             return (
-                <div className="scroll-table overflow-auto scrollbar">
+                <div className="latest-draws-scroll-table scroll-table overflow-auto scrollbar">
                     {this.state.entries.map(entry => (
-                        <LotteriesTableEntry key={entry.id} entry={entry}/>
+                        <LatestDrawsTableEntry key={entry.id} entry={entry}/>
                     ))}
                 </div>
             )
@@ -64,4 +67,4 @@ class LotteriesTable extends Component {
     }
 }
 
-export default LotteriesTable;
+export default LatestDrawsTable;
