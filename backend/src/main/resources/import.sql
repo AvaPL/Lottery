@@ -1,5 +1,5 @@
-INSERT INTO ACCOUNT (id, username, password) VALUES (1,'Pawel', 'admin');
-INSERT INTO ACCOUNT (id, username, password) VALUES (2,'Agnieszka', 'admin');
+INSERT INTO ACCOUNT (id, username, password) VALUES (1,'Pawel', '$2y$10$CkDoe1NOD0QbpAf4Dpbt7Od1T.TZCLKDbeViQ5FmJg2mO7VxwjB56');
+INSERT INTO ACCOUNT (id, username, password) VALUES (2,'Agnieszka', '$2y$10$CkDoe1NOD0QbpAf4Dpbt7Od1T.TZCLKDbeViQ5FmJg2mO7VxwjB56');
 
 INSERT INTO COUPON (id, account_id, bet_time) VALUES (2, 1, TO_TIMESTAMP('2017-12-23 15:11:22','YYYY-MM-DD HH24:MI:SS'));
 INSERT INTO COUPON (id, account_id, bet_time) VALUES (3, 2, TO_TIMESTAMP('2017-06-08 20:35:56','YYYY-MM-DD HH24:MI:SS'));
