@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import LotteriesTableEntry from "./LotteriesTableEntry";
 import "../../stylesheets/TableView.css";
-import LatestDrawsTableEntry from "../LatestDraws/LatestDrawsTableEntry";
 
 class LotteriesTable extends Component {
     state = {
@@ -15,7 +14,9 @@ class LotteriesTable extends Component {
     }
 
     fetchCurrentLotteries() {
-        return fetch("http://localhost:8008/api/currentLotterySummaries")
+        return fetch("http://localhost:8008/api/currentLotterySummaries", {
+            headers: { authorization: 'Basic ' + window.btoa('Pawel:admin') }
+        })
             .then(res => res.json()).then(res => res._embedded.currentLotterySummaries);
     }
 
