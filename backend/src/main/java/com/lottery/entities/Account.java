@@ -16,6 +16,7 @@ public class Account implements UserDetails {
     @Id
     @GeneratedValue
     private Long id;
+    //TODO: Add unique annotation.
     private String username;
     private String password;
     @OneToMany(mappedBy = "account")
