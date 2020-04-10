@@ -45,6 +45,8 @@ class AuthenticationService {
         )
     }
 
+    //TODO: Consider using this.
+    //
     // setLastPage(page){
     //     sessionStorage.setItem(SESSION_LAST_PAGE, page);
     // }
