@@ -15,9 +15,8 @@ class LotteriesTable extends Component {
     }
 
     getCurrentLotteries() {
-        return axios.get("http://localhost:8008/api/currentLotterySummaries", {
-            headers: { authorization: 'Basic ' + window.btoa('Pawel:admin') }
-        }).then(res => res.data._embedded.currentLotterySummaries);
+        return axios.get("http://localhost:8008/api/currentLotterySummaries")
+            .then(res => res.data._embedded.currentLotterySummaries);
     }
 
     formatLottery() {
