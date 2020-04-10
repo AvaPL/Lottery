@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-export const SESSION = '';
+export const SESSION_USERNAME = 'username';
+// export const SESSION_LAST_PAGE = 'lastPage';
 
 class AuthenticationService {
 
@@ -14,21 +15,21 @@ class AuthenticationService {
     }
 
     registerSuccessfulLogin(username, password) {
-        sessionStorage.setItem(SESSION, username);
+        sessionStorage.setItem(SESSION_USERNAME, username);
         this.setupAxiosInterceptors(this.createBasicAuthToken(username, password))
     }
 
     logout() {
-        sessionStorage.removeItem(SESSION);
+        sessionStorage.removeItem(SESSION_USERNAME);
     }
 
     isUserLoggedIn() {
-        const user = sessionStorage.getItem(SESSION);
+        const user = sessionStorage.getItem(SESSION_USERNAME);
         return user !== null;
     }
 
     getLoggedInUserName() {
-        const user = sessionStorage.getItem(SESSION);
+        const user = sessionStorage.getItem(SESSION_USERNAME);
         if (user === null)
             return '';
         return user
@@ -43,6 +44,16 @@ class AuthenticationService {
             }
         )
     }
+
+    // setLastPage(page){
+    //     sessionStorage.setItem(SESSION_LAST_PAGE, page);
+    // }
+    //
+    // getLastPage(){
+    //     const page = sessionStorage.getItem(SESSION_LAST_PAGE);
+    //     sessionStorage.removeItem(SESSION_LAST_PAGE);
+    //     return page;
+    // }
 }
 
 export default new AuthenticationService()
