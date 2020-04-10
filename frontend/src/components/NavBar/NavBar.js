@@ -14,13 +14,16 @@ class NavBar extends Component {
                         <Nav.Link href="/lotteries"><span className="nav-entry-text">LOTTERIES</span></Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                        <Nav.Link href="/latest-draws"><span className="nav-entry-text">LATEST&nbsp;DRAWS</span></Nav.Link>
+                        <Nav.Link href="/latest-draws"><span
+                            className="nav-entry-text">LATEST&nbsp;DRAWS</span></Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
                         <Nav.Link href="/my-coupons"><span className="nav-entry-text">MY&nbsp;COUPONS</span></Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                        <Button className="nav-button"><span className="nav-log-in-text">LOG&nbsp;IN</span></Button>
+                        <Nav.Link href="/login">
+                            <Button className="nav-button"><span className="nav-log-in-text">LOG&nbsp;IN</span></Button>
+                        </Nav.Link>
                     </Nav.Item>
                 </Nav>
             </Navbar>

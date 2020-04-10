@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import LotteriesTableEntry from "./LotteriesTableEntry";
 import "../../stylesheets/TableView.css";
-import LatestDrawsTableEntry from "../LatestDraws/LatestDrawsTableEntry";
+import axios from 'axios';
 
 class LotteriesTable extends Component {
     state = {
@@ -11,12 +11,13 @@ class LotteriesTable extends Component {
     };
 
     componentDidMount() {
-        this.fetchCurrentLotteries().then(this.processLotteries(), this.handleError())
+        this.getCurrentLotteries().then(this.processLotteries(), this.handleError())
     }
 
-    fetchCurrentLotteries() {
-        return fetch("http://localhost:8008/api/currentLotterySummaries")
-            .then(res => res.json()).then(res => res._embedded.currentLotterySummaries);
+    getCurrentLotteries() {
+        return axios.get("http://localhost:8008/api/currentLotterySummaries", {
+            headers: { authorization: 'Basic ' + window.btoa('Pawel:admin') }
+        }).then(res => res.data._embedded.currentLotterySummaries);
     }
 
     formatLottery() {
