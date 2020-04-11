@@ -1,23 +1,72 @@
 import React, {Component} from 'react';
 import MyCouponsTableEntry from "./MyCouponsTableEntry";
 import "../../stylesheets/TableView.css";
+import axios from "axios";
+import AuthenticationService from "../AuthenticationService";
 
 class MyCouponsTable extends Component {
+    state = {
+        error: null,
+        isLoaded: false,
+        entries: []
+    };
+
+    componentDidMount() {
+        this.getMyCoupons().then(this.processCoupons(), this.handleError());
+    }
+
+    getMyCoupons() {
+        return axios.get("http://localhost:8008/api/myCoupons/" + AuthenticationService.getLoggedInUserName(),
+            {headers: {authorization: 'Basic ' + window.btoa("Agnieszka:admin")}})
+            .then(res => res.data.couponSummaries);
+    }
+
+    processCoupons() {
+        return coupons => {
+            coupons.forEach(this.formatCoupon());
+            this.setState({isLoaded: true, entries: coupons});
+        }
+    }
+
+    formatCoupon() {
+        return (c, i) => {
+            c.id = i + 1;
+            const date = new Date(c.betTime);
+            c.betTime = date.toLocaleString('en-GB', {
+                year: 'numeric',
+                month: 'numeric',
+                day: 'numeric',
+                hour: 'numeric',
+                minute: 'numeric'
+            });
+        };
+    }
+
+    handleError() {
+        return error => {
+            this.setState({
+                isLoaded: true,
+                error});
+            console.log(error);
+        }
+    }
+
     render() {
         return (
             <div className="scroll-table overflow-auto scrollbar">
-                <MyCouponsTableEntry id="1" type="lotto" lotteryDate="26.03.2020" entries="3"
-                                     priceWon="3 000 000 €"/>
-                <MyCouponsTableEntry id="2" type="multi multi" lotteryDate="28.03.2020" entries="10"
-                                     priceWon="2 €"/>
-                <MyCouponsTableEntry id="3" type="euro jackpot" lotteryDate="31.03.2020" entries="5"
-                                     priceWon="0 €"/>
-                <MyCouponsTableEntry id="4" type="mini-lotto" lotteryDate="03.04.2020" entries="1"
-                                     priceWon="5 €"/>
-                <MyCouponsTableEntry id="5" type="lotto" lotteryDate="15.04.2020" entries="3"
-                                     priceWon="0 €"/>
+                {this.getEntries()}
             </div>
         );
+    }
+
+    getEntries() {
+        if (this.state.error) {
+            return <span className="error-text">Error</span>;
+        } else if (!this.state.isLoaded) {
+            return <span className="loading-text">Loading...</span>;
+        } else {
+            return this.state.entries.map(entry => <MyCouponsTableEntry key={entry.id} entry={entry}/>);
+        }
     }
 }
 

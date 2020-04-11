@@ -37,6 +37,7 @@ class AuthenticationService {
     }
 
     setupAxiosInterceptors(token) {
+        console.log("setup axios");
         axios.interceptors.request.use(
             (config) => {
                 if (this.isUserLoggedIn())

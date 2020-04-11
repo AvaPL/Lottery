@@ -8,7 +8,6 @@ import AuthenticationService from "../AuthenticationService";
 class NavBar extends Component {
 
     render() {
-        console.log("Navbar rendered");
         return (
             <Navbar className="shadow-sm nav-bar" variant="light">
                 <Navbar.Brand href="/"><span className="nav-brand-text">Lottery</span></Navbar.Brand>

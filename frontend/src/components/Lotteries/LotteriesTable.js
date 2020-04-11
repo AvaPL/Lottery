@@ -19,6 +19,13 @@ class LotteriesTable extends Component {
             .then(res => res.data._embedded.currentLotterySummaries);
     }
 
+    processLotteries() {
+        return lotteries => {
+            lotteries.forEach(this.formatLottery());
+            this.setState({isLoaded: true, entries: lotteries});
+        };
+    }
+
     formatLottery() {
         return (e, i) => {
             e.id = i + 1;
@@ -33,16 +40,11 @@ class LotteriesTable extends Component {
         };
     }
 
-    processLotteries() {
-        return lotteries => {
-            lotteries.forEach(this.formatLottery());
-            this.setState({isLoaded: true, entries: lotteries});
-        };
-    }
-
     handleError() {
         return error => {
-            this.setState({isLoaded: true, error});
+            this.setState({
+                isLoaded: true,
+                error});
             console.log(error);
         };
     }

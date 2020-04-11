@@ -10,10 +10,7 @@ class MyCouponsTableHeader extends Component {
                         <span className="column-header">no.</span>
                     </div>
                     <div className="col-sm">
-                        <span className="column-header">type</span>
-                    </div>
-                    <div className="col-sm">
-                        <span className="column-header">lottery&nbsp;date</span>
+                        <span className="column-header">bet&nbsp;time</span>
                     </div>
                     <div className="col-sm">
                         <span className="column-header">entries</span>
