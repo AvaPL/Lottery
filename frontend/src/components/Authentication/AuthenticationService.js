@@ -1,12 +1,14 @@
-import axios from 'axios';
+import fetchClient from './fetchClient';
 
 export const SESSION_USERNAME = 'username';
+export const SESSION_TOKEN = 'token';
+
 // export const SESSION_LAST_PAGE = 'lastPage';
 
 class AuthenticationService {
 
     executeBasicAuthenticationService(username, password) {
-        return axios.get("http://localhost:8008/basicauth",
+        return fetchClient.get("basicauth",
             {headers: {authorization: this.createBasicAuthToken(username, password)}})
     }
 
@@ -15,13 +17,13 @@ class AuthenticationService {
     }
 
     registerSuccessfulLogin(username, password) {
-        console.log("User logged");
         sessionStorage.setItem(SESSION_USERNAME, username);
-        this.setupAxiosInterceptors(this.createBasicAuthToken(username, password))
+        sessionStorage.setItem(SESSION_TOKEN, this.createBasicAuthToken(username, password));
     }
 
     logout() {
         sessionStorage.removeItem(SESSION_USERNAME);
+        sessionStorage.removeItem(SESSION_TOKEN);
     }
 
     isUserLoggedIn() {
@@ -36,15 +38,21 @@ class AuthenticationService {
         return user
     }
 
-    setupAxiosInterceptors(token) {
-        axios.interceptors.request.use(
-            (config) => {
-                if (this.isUserLoggedIn())
-                    config.headers.authorization = token;
-                return config
-            }
-        )
-    }
+    // addAuthorizationHeader(token) {
+    //     console.log("Adding auth header");
+    //     fetchClient.interceptors.request.use(
+    //         config => {
+    //             config.headers.Authorization = token;
+    //             return config
+    //         }
+    //     );
+    //     console.log(fetchClient.interceptors.request)
+    // }
+    //
+    // removeAuthorizationHeader() {
+    //     console.log("Removing auth header");
+    //     fetchClient.interceptors.request.use()
+    // }
 
     //TODO: Consider using this.
     //

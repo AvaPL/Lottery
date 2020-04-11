@@ -23,7 +23,7 @@ import java.sql.Timestamp;
            "               group by LD.id) P on LD.id = P.id")
 public class CurrentLotterySummary {
     @Id
-    @GeneratedValue
+    @GeneratedValue //TODO: Might be not needed.
     private Long id;
     private String type;
     private Timestamp nextDraw;

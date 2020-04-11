@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import "./LatestDrawsTable.css";
 import "../../stylesheets/TableView.css";
 import LatestDrawsTableEntry from "./LatestDrawsTableEntry";
-import axios from "axios";
+import fetchClient from "../Authentication/fetchClient";
 
 class LatestDrawsTable extends Component {
     state = {
@@ -16,7 +16,7 @@ class LatestDrawsTable extends Component {
     }
 
     fetchLatestDraws() {
-        return axios.get("http://localhost:8008/api/latestDrawsSummaries")
+        return fetchClient.get("latestDrawsSummaries")
             .then(res => res.data._embedded.latestDrawsSummaries);
     }
 

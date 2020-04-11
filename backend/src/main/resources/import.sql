@@ -26,15 +26,15 @@ INSERT INTO PRICE_WEIGHT (id, hits_count, weight, draw_type_id) VALUES (1, 4, 1,
 INSERT INTO PRICE_WEIGHT (id, hits_count, weight, draw_type_id) VALUES (2, 5, 10, 1);
 INSERT INTO PRICE_WEIGHT (id, hits_count, weight, draw_type_id) VALUES (3, 6, 50, 1);
 
-INSERT INTO ENTRY (id, coupon_id, lottery_draw_id, numbers, hits_count) VALUES (1, 1, 1, 12467, 3);
-INSERT INTO ENTRY (id, coupon_id, lottery_draw_id, numbers, hits_count) VALUES (3, 2, 3, 12347, 4);
-INSERT INTO ENTRY (id, coupon_id, lottery_draw_id, numbers, hits_count) VALUES (4, 2, 4, 35679, 5);
-INSERT INTO ENTRY (id, coupon_id, lottery_draw_id, numbers, hits_count) VALUES (2, 1, 2, 36498, 6);
-INSERT INTO ENTRY (id, coupon_id, lottery_draw_id, numbers, hits_count) VALUES (5, 2, 5, 45738, 1);
-INSERT INTO ENTRY (id, coupon_id, lottery_draw_id, numbers, hits_count) VALUES (6, 3, 6, 16798, 2);
-INSERT INTO ENTRY (id, coupon_id, lottery_draw_id, numbers, hits_count) VALUES (7, 3, 1, 45679, 3);
-INSERT INTO ENTRY (id, coupon_id, lottery_draw_id, numbers, hits_count) VALUES (8, 3, 2, 57985, 4);
-INSERT INTO ENTRY (id, coupon_id, lottery_draw_id, numbers, hits_count) VALUES (9, 4, 3, 34687, 5);
-INSERT INTO ENTRY (id, coupon_id, lottery_draw_id, numbers, hits_count) VALUES (10, 4, 4, 56784, 6);
-INSERT INTO ENTRY (id, coupon_id, lottery_draw_id, numbers, hits_count) VALUES (11, 4, 5, 15649, 1);
-INSERT INTO ENTRY (id, coupon_id, lottery_draw_id, numbers, hits_count) VALUES (12, 5, 6, 23469, 2);
+INSERT INTO ENTRY (id, coupon_id, lottery_draw_id, numbers, price_won) VALUES (1, 1, 1, 12467, null);
+INSERT INTO ENTRY (id, coupon_id, lottery_draw_id, numbers, price_won) VALUES (3, 2, 3, 12347, 45);
+INSERT INTO ENTRY (id, coupon_id, lottery_draw_id, numbers, price_won) VALUES (4, 2, 4, 35679, 4.8);
+INSERT INTO ENTRY (id, coupon_id, lottery_draw_id, numbers, price_won) VALUES (2, 1, 2, 36498, 5);
+INSERT INTO ENTRY (id, coupon_id, lottery_draw_id, numbers, price_won) VALUES (5, 2, 5, 45738, 100);
+INSERT INTO ENTRY (id, coupon_id, lottery_draw_id, numbers, price_won) VALUES (6, 3, 6, 16798, 10000);
+INSERT INTO ENTRY (id, coupon_id, lottery_draw_id, numbers, price_won) VALUES (7, 3, 1, 45679, 1);
+INSERT INTO ENTRY (id, coupon_id, lottery_draw_id, numbers, price_won) VALUES (8, 3, 2, 57985, 2.5);
+INSERT INTO ENTRY (id, coupon_id, lottery_draw_id, numbers, price_won) VALUES (9, 4, 3, 34687, 5);
+INSERT INTO ENTRY (id, coupon_id, lottery_draw_id, numbers, price_won) VALUES (10, 4, 4, 5678, 1.6);
+INSERT INTO ENTRY (id, coupon_id, lottery_draw_id, numbers, price_won) VALUES (11, 4, 5, 1564, 1);
+INSERT INTO ENTRY (id, coupon_id, lottery_draw_id, numbers, price_won) VALUES (12, 5, 6, 2346, null);

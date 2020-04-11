@@ -3,12 +3,11 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Button from "react-bootstrap/Button";
 import './NavBar.css'
-import AuthenticationService from "../AuthenticationService";
+import AuthenticationService from "../Authentication/AuthenticationService";
 
 class NavBar extends Component {
 
     render() {
-        console.log("Navbar rendered");
         return (
             <Navbar className="shadow-sm nav-bar" variant="light">
                 <Navbar.Brand href="/"><span className="nav-brand-text">Lottery</span></Navbar.Brand>

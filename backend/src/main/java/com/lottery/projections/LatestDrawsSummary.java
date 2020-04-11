@@ -29,7 +29,7 @@ import java.util.List;
            "where ROWNUM <= 10")
 public class LatestDrawsSummary {
     @Id
-    @GeneratedValue
+    @GeneratedValue //TODO: Might be not needed.
     private Long id;
     private String type;
     private Timestamp drawDate;

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import LotteriesTableEntry from "./LotteriesTableEntry";
 import "../../stylesheets/TableView.css";
-import axios from 'axios';
+import fetchClient from "../Authentication/fetchClient";
 
 class LotteriesTable extends Component {
     state = {
@@ -15,8 +15,15 @@ class LotteriesTable extends Component {
     }
 
     getCurrentLotteries() {
-        return axios.get("http://localhost:8008/api/currentLotterySummaries")
+        return fetchClient.get("currentLotterySummaries")
             .then(res => res.data._embedded.currentLotterySummaries);
+    }
+
+    processLotteries() {
+        return lotteries => {
+            lotteries.forEach(this.formatLottery());
+            this.setState({isLoaded: true, entries: lotteries});
+        };
     }
 
     formatLottery() {
@@ -33,16 +40,11 @@ class LotteriesTable extends Component {
         };
     }
 
-    processLotteries() {
-        return lotteries => {
-            lotteries.forEach(this.formatLottery());
-            this.setState({isLoaded: true, entries: lotteries});
-        };
-    }
-
     handleError() {
         return error => {
-            this.setState({isLoaded: true, error});
+            this.setState({
+                isLoaded: true,
+                error});
             console.log(error);
         };
     }
