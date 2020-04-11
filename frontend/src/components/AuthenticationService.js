@@ -15,6 +15,7 @@ class AuthenticationService {
     }
 
     registerSuccessfulLogin(username, password) {
+        console.log("User logged");
         sessionStorage.setItem(SESSION_USERNAME, username);
         this.setupAxiosInterceptors(this.createBasicAuthToken(username, password))
     }

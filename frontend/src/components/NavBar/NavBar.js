@@ -3,9 +3,12 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Button from "react-bootstrap/Button";
 import './NavBar.css'
+import AuthenticationService from "../AuthenticationService";
 
 class NavBar extends Component {
+
     render() {
+        console.log("Navbar rendered");
         return (
             <Navbar className="shadow-sm nav-bar" variant="light">
                 <Navbar.Brand href="/"><span className="nav-brand-text">Lottery</span></Navbar.Brand>
@@ -21,9 +24,15 @@ class NavBar extends Component {
                         <Nav.Link href="/my-coupons"><span className="nav-entry-text">MY&nbsp;COUPONS</span></Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                        <Nav.Link href="/login">
-                            <Button className="nav-button"><span className="nav-log-in-text">LOG&nbsp;IN</span></Button>
-                        </Nav.Link>
+                        {AuthenticationService.isUserLoggedIn() ?
+                            <Nav.Link href="/">
+                                <Button className="nav-button" onClick={AuthenticationService.logout}><span
+                                className="nav-log-in-text">LOG&nbsp;OUT</span></Button>
+                            </Nav.Link> :
+                            <Nav.Link href="/login">
+                                <Button className="nav-button"><span
+                                className="nav-log-in-text">LOG&nbsp;IN</span></Button>
+                            </Nav.Link>}
                     </Nav.Item>
                 </Nav>
             </Navbar>

@@ -41,11 +41,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements WebM
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         //TODO: Handle different roles.
-        http.cors().and().authorizeRequests().anyRequest().authenticated().and().httpBasic();
+        http.cors().and().authorizeRequests().antMatchers("/api/currentLotterySummaries/**", "/api/latestDrawsSummaries/**").permitAll().anyRequest().authenticated().and().httpBasic();
     }
 
     @Bean
-    public CorsConfigurationSource corsConfigurationSource(){
+    public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.applyPermitDefaultValues();
         configuration.setAllowedOrigins(Collections.singletonList("http://localhost:3000"));

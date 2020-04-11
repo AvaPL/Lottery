@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import "./LatestDrawsTable.css";
 import "../../stylesheets/TableView.css";
 import LatestDrawsTableEntry from "./LatestDrawsTableEntry";
+import axios from "axios";
 
 class LatestDrawsTable extends Component {
     state = {
@@ -15,8 +16,8 @@ class LatestDrawsTable extends Component {
     }
 
     fetchLatestDraws() {
-        return fetch("http://localhost:8008/api/latestDrawsSummaries")
-            .then(res => res.json()).then(res => res._embedded.latestDrawsSummaries);
+        return axios.get("http://localhost:8008/api/latestDrawsSummaries")
+            .then(res => res.data._embedded.latestDrawsSummaries);
     }
 
     formatLottery() {
