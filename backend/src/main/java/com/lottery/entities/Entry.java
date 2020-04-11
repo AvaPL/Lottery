@@ -11,7 +11,7 @@ public class Entry {
     @GeneratedValue
     private Long id;
     private long numbers;
-    private int hitsCount;
+    private Float priceWon;
     @ManyToOne //TODO: Might be not optimal (eager fetch).
     @JoinColumn(name = "coupon_id")
     private Coupon coupon;
