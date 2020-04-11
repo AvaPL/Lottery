@@ -6,6 +6,7 @@ import './NavBar.css'
 import AuthenticationService from "../AuthenticationService";
 
 class NavBar extends Component {
+
     render() {
         console.log("Navbar rendered");
         return (
@@ -25,7 +26,7 @@ class NavBar extends Component {
                     <Nav.Item>
                         {AuthenticationService.isUserLoggedIn() ?
                             <Nav.Link href="/">
-                                <Button className="nav-button"><span
+                                <Button className="nav-button" onClick={AuthenticationService.logout}><span
                                 className="nav-log-in-text">LOG&nbsp;OUT</span></Button>
                             </Nav.Link> :
                             <Nav.Link href="/login">

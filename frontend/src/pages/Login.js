@@ -26,7 +26,7 @@ class Login extends Component {
         AuthenticationService.executeBasicAuthenticationService(this.state.username, this.state.password)
             .then(() => {
                 AuthenticationService.registerSuccessfulLogin(this.state.username, this.state.password);
-                this.props.history.push('/');
+                window.location.replace('/');
             })
             .catch(() => this.setState({hasLoginFailed: true}))
     };
