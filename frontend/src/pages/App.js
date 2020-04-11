@@ -10,6 +10,7 @@ import BuyACoupon from "./BuyACoupon";
 import LatestDraws from "./LatestDraws";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AuthenticatedRoute from "../components/Authentication/AuthenticatedRoute";
+import Registration from "./Registration";
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
                 <Switch>
                     <Route exact path="/" component={MainPage}/>
                     <Route exact path="/login" component={Login}/>
+                    <Route exact path="/register" component={Registration}/>
                     <Route exact path="/lotteries" component={Lotteries}/>
                     <Route exact path="/latest-draws" component={LatestDraws}/>
                     <AuthenticatedRoute exact path="/my-coupons" component={MyCoupons}/>
