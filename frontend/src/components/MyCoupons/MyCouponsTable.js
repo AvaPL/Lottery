@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import MyCouponsTableEntry from "./MyCouponsTableEntry";
 import "../../stylesheets/TableView.css";
-import axios from "axios";
-import AuthenticationService from "../AuthenticationService";
+import AuthenticationService from "../Authentication/AuthenticationService";
+import fetchClient from "../Authentication/fetchClient";
 
 class MyCouponsTable extends Component {
     state = {
@@ -16,8 +16,7 @@ class MyCouponsTable extends Component {
     }
 
     getMyCoupons() {
-        return axios.get("http://localhost:8008/api/myCoupons/" + AuthenticationService.getLoggedInUserName(),
-            {headers: {authorization: 'Basic ' + window.btoa("Agnieszka:admin")}})
+        return fetchClient.get("myCoupons/" + AuthenticationService.getLoggedInUserName())
             .then(res => res.data.couponSummaries);
     }
 
@@ -46,7 +45,8 @@ class MyCouponsTable extends Component {
         return error => {
             this.setState({
                 isLoaded: true,
-                error});
+                error
+            });
             console.log(error);
         }
     }

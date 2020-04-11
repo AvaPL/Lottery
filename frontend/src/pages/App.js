@@ -9,7 +9,7 @@ import MyCoupons from "./MyCoupons";
 import BuyACoupon from "./BuyACoupon";
 import LatestDraws from "./LatestDraws";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import AuthenticatedRoute from "../components/AuthenticatedRoute";
+import AuthenticatedRoute from "../components/Authentication/AuthenticatedRoute";
 
 function App() {
     return (

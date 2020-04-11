@@ -3,7 +3,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Button from "react-bootstrap/Button";
 import './NavBar.css'
-import AuthenticationService from "../AuthenticationService";
+import AuthenticationService from "../Authentication/AuthenticationService";
 
 class NavBar extends Component {
 

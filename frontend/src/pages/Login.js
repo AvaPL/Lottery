@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import './Login.css'
 import Button from "react-bootstrap/Button";
-import AuthenticationService from "../components/AuthenticationService";
+import AuthenticationService from "../components/Authentication/AuthenticationService";
 
 class Login extends Component {
     state = {
-        username: 'Pawel',
+        username: '',
         password: '',
         hasLoginFailed: false
     };
@@ -19,10 +19,6 @@ class Login extends Component {
     };
 
     loginClicked = () => {
-        // if (this.state.username === 'Pawel' && this.state.password === 'admin')
-        //     this.setState({hasLoginFailed: false});
-        // else
-        //     this.setState({hasLoginFailed: true});
         AuthenticationService.executeBasicAuthenticationService(this.state.username, this.state.password)
             .then(() => {
                 AuthenticationService.registerSuccessfulLogin(this.state.username, this.state.password);

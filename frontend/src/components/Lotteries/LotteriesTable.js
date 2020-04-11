@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import LotteriesTableEntry from "./LotteriesTableEntry";
 import "../../stylesheets/TableView.css";
-import axios from 'axios';
+import fetchClient from "../Authentication/fetchClient";
 
 class LotteriesTable extends Component {
     state = {
@@ -15,7 +15,7 @@ class LotteriesTable extends Component {
     }
 
     getCurrentLotteries() {
-        return axios.get("http://localhost:8008/api/currentLotterySummaries")
+        return fetchClient.get("currentLotterySummaries")
             .then(res => res.data._embedded.currentLotterySummaries);
     }
 

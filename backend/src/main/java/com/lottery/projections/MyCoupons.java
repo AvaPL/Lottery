@@ -12,7 +12,6 @@ import java.util.List;
 @Immutable
 @Entity
 @Data
-//TODO: Change placeholder subselect.
 @Subselect("select username\n" +
            "from ACCOUNT")
 public class MyCoupons {
