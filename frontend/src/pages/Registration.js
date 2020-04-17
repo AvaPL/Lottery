@@ -7,10 +7,32 @@ import "./Registration.css";
 
 class Registration extends Component {
 
-    handleChange = () => {
+    state = {
+        username: '',
+        password: '',
+        repeatPassword: '',
+        email: '',
+        creditCardNumber: '',
+        creditCardExpirationDate: '',
+        cvv: '',
+        hasRegistrationFailed: false
     };
 
-    onKeyDown = () => {
+    handleChange = event => {
+        this.setState(
+            {
+                [event.target.id]: event.target.value
+            }
+        )
+    };
+
+    registerClicked = () => {
+        console.log(this.state);
+    };
+
+    onKeyDown = event => {
+        if(event.key === 'Enter')
+            this.registerClicked();
     };
 
 
@@ -66,7 +88,7 @@ class Registration extends Component {
                                            onChange={this.handleChange} onKeyDown={this.onKeyDown}/>
                                 </div>
                                 <Button type="submit" className="btn-primary register-button"
-                                        onClick={this.loginClicked}>REGISTER</Button>
+                                        onClick={this.registerClicked}>REGISTER</Button>
                             </Col>
                         </Row>
                     </Container>
