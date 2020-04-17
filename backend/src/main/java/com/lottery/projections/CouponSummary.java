@@ -23,7 +23,7 @@ public class CouponSummary {
     @GeneratedValue //TODO: Might be not needed.
     private Long id;
     private Timestamp betTime;
-    private int numberOfEntries;
+    private Integer numberOfEntries;
     private Float priceWon;
     @ManyToOne
     @JoinColumn(name = "username")

@@ -1,5 +1,5 @@
-INSERT INTO ACCOUNT (id, username, password) VALUES (1,'Pawel', '$2y$10$CkDoe1NOD0QbpAf4Dpbt7Od1T.TZCLKDbeViQ5FmJg2mO7VxwjB56');
-INSERT INTO ACCOUNT (id, username, password) VALUES (2,'Agnieszka', '$2y$10$CkDoe1NOD0QbpAf4Dpbt7Od1T.TZCLKDbeViQ5FmJg2mO7VxwjB56');
+INSERT INTO ACCOUNT VALUES (1, TO_DATE('12/21', 'mm/yy'), '375764936673290', '123', 'pawel@lottery.com','$2y$10$CkDoe1NOD0QbpAf4Dpbt7Od1T.TZCLKDbeViQ5FmJg2mO7VxwjB56', 'Pawel');
+INSERT INTO ACCOUNT VALUES (2, TO_DATE('12/22', 'mm/yy'), '347016889446660', '136', 'agnieszka@lottery.com','$2y$10$CkDoe1NOD0QbpAf4Dpbt7Od1T.TZCLKDbeViQ5FmJg2mO7VxwjB56', 'Agnieszka');
 
 INSERT INTO COUPON (id, account_id, bet_time) VALUES (2, 1, TO_TIMESTAMP('2017-12-23 15:11:22','YYYY-MM-DD HH24:MI:SS'));
 INSERT INTO COUPON (id, account_id, bet_time) VALUES (3, 2, TO_TIMESTAMP('2017-06-08 20:35:56','YYYY-MM-DD HH24:MI:SS'));

@@ -3,6 +3,7 @@ package com.lottery.entities;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -10,12 +11,15 @@ import java.util.List;
 @Data
 public class Coupon {
     @Id
-    @GeneratedValue
+    @SequenceGenerator(name = "COUPON_GENERATOR", sequenceName = "COUPON_SEQUENCE", allocationSize = 1, initialValue = 1000)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "COUPON_GENERATOR")
     private Long id;
+    @NotNull
     private Timestamp betTime;
     @OneToMany(mappedBy = "coupon")
     private List<Entry> entries;
-    @ManyToOne //TODO: Might be not optimal (eager fetch).
+    @NotNull
+    @ManyToOne
     @JoinColumn(name = "account_id")
     private Account account;
 }

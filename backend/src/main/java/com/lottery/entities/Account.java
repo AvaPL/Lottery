@@ -9,6 +9,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.Collection;
 import java.util.Collections;
@@ -23,12 +24,20 @@ public class Account implements UserDetails {
     @SequenceGenerator(name = "ACCOUNT_GENERATOR", sequenceName = "ACCOUNT_SEQUENCE", allocationSize = 1, initialValue = 1000)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ACCOUNT_GENERATOR")
     private Long id;
-    //TODO: Add unique annotation.
+    @NotNull
+    @Column(unique = true)
     private final String username;
+    @NotNull
     private final String password;
+    @NotNull
+    @Column(unique = true)
     private final String email;
+    @NotNull
+    @Column(unique = true)
     private final String creditCardNumber;
+    @NotNull
     private final LocalDate creditCardExpirationDate;
+    @NotNull
     private final String cvv;
     @OneToMany(mappedBy = "account")
     private List<Coupon> coupons;

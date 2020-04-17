@@ -1,6 +1,5 @@
 package com.lottery.security;
 
-import com.lottery.entities.Account;
 import com.lottery.repositories.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

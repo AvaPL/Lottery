@@ -27,5 +27,5 @@ public class CurrentLotterySummary {
     private Long id;
     private String type;
     private Timestamp nextDraw;
-    private float price;
+    private Float price;
 }
