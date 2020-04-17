@@ -1,5 +1,6 @@
 package com.lottery.security;
 
+import com.lottery.entities.Account;
 import com.lottery.repositories.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -42,7 +43,7 @@ public class AccountController {
         validateEmail(form.getEmail(), bindingResult);
         if (bindingResult.hasErrors())
             return new ResponseEntity<>(getErrorsList(bindingResult), HttpStatus.BAD_REQUEST);
-        //TODO: Add user to repository.
+        accountRepository.save(form.toAccount(passwordEncoder));
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
