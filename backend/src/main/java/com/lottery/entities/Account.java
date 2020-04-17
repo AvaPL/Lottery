@@ -6,6 +6,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -19,6 +20,10 @@ public class Account implements UserDetails {
     //TODO: Add unique annotation.
     private String username;
     private String password;
+    private String email;
+    private String creditCardNumber;
+    private Timestamp creditCardExpirationDate;
+    private String cvv;
     @OneToMany(mappedBy = "account")
     private List<Coupon> coupons;
 

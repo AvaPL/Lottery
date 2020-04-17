@@ -38,6 +38,7 @@ class MyCouponsTable extends Component {
                 hour: 'numeric',
                 minute: 'numeric'
             });
+            c.priceWon = c.priceWon === null ? "-" : c.priceWon + " €";
         };
     }
 

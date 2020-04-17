@@ -1,4 +1,4 @@
-.login-header-box {
+.authentication-header-box {
     background-color: #57AEFF;
     width: 25%;
     height: 100px;
@@ -7,7 +7,7 @@
     border-radius: 10px;
 }
 
-.login-text {
+.authentication-text {
     font-family: Roboto, sans-serif;
     font-style: normal;
     font-weight: normal;
@@ -18,9 +18,9 @@
     color: #FFFFFF;
 }
 
-.login-body {
+.authentication-body {
     background-color: white;
-    width: 25%;
+    width: 50%;
     margin: 20px auto 0;
     padding: 20px;
     border-radius: 10px;
