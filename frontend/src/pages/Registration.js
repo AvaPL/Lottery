@@ -4,6 +4,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "./Registration.css";
+import fetchClient from "../components/Authentication/fetchClient";
 
 class Registration extends Component {
 
@@ -28,10 +29,13 @@ class Registration extends Component {
 
     registerClicked = () => {
         console.log(this.state);
+        fetchClient.post("register", this.state)
+            .then(() => console.log('Register successful'))
+            .catch(() => console.log('Register failed'))
     };
 
     onKeyDown = event => {
-        if(event.key === 'Enter')
+        if (event.key === 'Enter')
             this.registerClicked();
     };
 
@@ -39,10 +43,10 @@ class Registration extends Component {
     render() {
         return (
             <div>
-                <div className="authentication-header-box">
-                    <span className="authentication-text">REGISTRATION</span>
+                <div className="register-header-box">
+                    <span className="register-text">REGISTRATION</span>
                 </div>
-                <div className="authentication-body">
+                <div className="register-body">
                     <Container fluid>
                         <Row>
                             {/*{this.state.isUsernameTaken && <div className="alert alert-warning">Username already exists</div>}*/}

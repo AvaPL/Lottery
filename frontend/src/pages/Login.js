@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './Authentication.css'
+import './Login.css'
 import Button from "react-bootstrap/Button";
 import AuthenticationService from "../components/Authentication/AuthenticationService";
 
@@ -35,10 +35,10 @@ class Login extends Component {
     render() {
         return (
             <div>
-                <div className="authentication-header-box">
-                    <span className="authentication-text">LOG IN</span>
+                <div className="login-header-box">
+                    <span className="login-text">LOG IN</span>
                 </div>
-                <div className="authentication-body">
+                <div className="login-body">
                     {this.state.hasLoginFailed && <div className="alert alert-warning">Invalid credentials</div>}
                     <div className="form-group">
                         <label htmlFor="username">Username</label>

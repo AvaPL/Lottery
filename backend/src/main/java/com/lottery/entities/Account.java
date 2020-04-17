@@ -1,6 +1,9 @@
 package com.lottery.entities;
 
+import lombok.AccessLevel;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -13,17 +16,19 @@ import java.util.List;
 
 @Entity
 @Data
+@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
+@RequiredArgsConstructor
 public class Account implements UserDetails {
     @Id
     @GeneratedValue
     private Long id;
     //TODO: Add unique annotation.
-    private String username;
-    private String password;
-    private String email;
-    private String creditCardNumber;
-    private Timestamp creditCardExpirationDate;
-    private String cvv;
+    private final String username;
+    private final String password;
+    private final String email;
+    private final String creditCardNumber;
+    private final Timestamp creditCardExpirationDate;
+    private final String cvv;
     @OneToMany(mappedBy = "account")
     private List<Coupon> coupons;
 

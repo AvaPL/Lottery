@@ -1,3 +1,31 @@
 .register-button  {
     margin-top: 30px;
 }
+
+.register-header-box {
+    background-color: #57AEFF;
+    width: 50%;
+    height: 100px;
+    padding-top: 22px;
+    margin: 180px auto 0;
+    border-radius: 10px;
+}
+
+.register-text {
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 48px;
+    line-height: 56px;
+    text-align: center;
+    letter-spacing: -0.015em;
+    color: #FFFFFF;
+}
+
+.register-body {
+    background-color: white;
+    width: 50%;
+    margin: 20px auto 0;
+    padding: 20px;
+    border-radius: 10px;
+}
