@@ -3,17 +3,23 @@ package com.lottery.entities;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
 @Data
 public class DrawType {
     @Id
-    @GeneratedValue
+    @SequenceGenerator(name = "DRAW_TYPE_GENERATOR", sequenceName = "DRAW_TYPE_SEQUENCE", allocationSize = 1, initialValue = 1000)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "DRAW_TYPE_GENERATOR")
     private Long id;
+    @NotNull
+    @Column(unique = true)
     private String name;
-    private int entryCost;
-    private int numbersCount;
+    @NotNull
+    private Integer entryCost;
+    @NotNull
+    private Integer numbersCount;
     @OneToMany(mappedBy = "drawType")
     private List<LotteryDraw> lotteryDraws;
     @OneToMany(mappedBy = "drawType")
