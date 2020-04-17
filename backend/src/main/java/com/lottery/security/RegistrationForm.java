@@ -2,11 +2,17 @@ package com.lottery.security;
 
 import com.lottery.entities.Account;
 import lombok.Data;
+import lombok.SneakyThrows;
 import org.hibernate.validator.constraints.CreditCardNumber;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import javax.validation.constraints.*;
-import java.sql.Timestamp;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+import java.time.LocalDate;
+import java.time.YearMonth;
+import java.time.format.DateTimeFormatter;
 
 @Data
 public class RegistrationForm {
@@ -33,7 +39,9 @@ public class RegistrationForm {
     private String cvv;
 
     public Account toAccount(PasswordEncoder passwordEncoder) {
-        return new Account(username, passwordEncoder.encode(password), email, creditCardNumber,
-                           new Timestamp(System.currentTimeMillis()), cvv); //TODO: Replace placeholder conversion.
+        LocalDate cardExpirationDate =
+                YearMonth.parse(creditCardExpirationDate, DateTimeFormatter.ofPattern("MM/yy")).atDay(1);
+        return new Account(username, passwordEncoder.encode(password), email, creditCardNumber, cardExpirationDate,
+                           cvv);
     }
 }

@@ -8,8 +8,11 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.persistence.*;
-import java.sql.Timestamp;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.time.LocalDate;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -27,7 +30,7 @@ public class Account implements UserDetails {
     private final String password;
     private final String email;
     private final String creditCardNumber;
-    private final Timestamp creditCardExpirationDate;
+    private final LocalDate creditCardExpirationDate;
     private final String cvv;
     @OneToMany(mappedBy = "account")
     private List<Coupon> coupons;
