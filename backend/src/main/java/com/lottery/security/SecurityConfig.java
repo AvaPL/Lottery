@@ -3,6 +3,7 @@ package com.lottery.security;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -41,7 +42,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements WebM
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         //TODO: Handle different roles.
-        http.cors().and().authorizeRequests().antMatchers("/api/currentLotterySummaries/**", "/api/latestDrawsSummaries/**").permitAll().anyRequest().authenticated().and().httpBasic();
+        http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/register/**").permitAll()
+            .antMatchers("/api/currentLotterySummaries/**", "/api/latestDrawsSummaries/**").permitAll()
+            .anyRequest().authenticated().and().httpBasic().and().cors().and().csrf().disable();
     }
 
     @Bean

@@ -1,29 +1,35 @@
 package com.lottery.entities;
 
+import lombok.AccessLevel;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
 @Entity
 @Data
+@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
+@RequiredArgsConstructor
 public class Account implements UserDetails {
     @Id
-    @GeneratedValue
+    @SequenceGenerator(name = "ACCOUNT_GENERATOR", sequenceName = "ACCOUNT_SEQUENCE", allocationSize = 1, initialValue = 1000)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ACCOUNT_GENERATOR")
     private Long id;
     //TODO: Add unique annotation.
-    private String username;
-    private String password;
-    private String email;
-    private String creditCardNumber;
-    private Timestamp creditCardExpirationDate;
-    private String cvv;
+    private final String username;
+    private final String password;
+    private final String email;
+    private final String creditCardNumber;
+    private final LocalDate creditCardExpirationDate;
+    private final String cvv;
     @OneToMany(mappedBy = "account")
     private List<Coupon> coupons;
 

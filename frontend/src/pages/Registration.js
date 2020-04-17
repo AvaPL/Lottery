@@ -4,6 +4,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "./Registration.css";
+import fetchClient from "../components/Authentication/fetchClient";
 
 class Registration extends Component {
 
@@ -14,8 +15,7 @@ class Registration extends Component {
         email: '',
         creditCardNumber: '',
         creditCardExpirationDate: '',
-        cvv: '',
-        hasRegistrationFailed: false
+        cvv: ''
     };
 
     handleChange = event => {
@@ -27,11 +27,16 @@ class Registration extends Component {
     };
 
     registerClicked = () => {
-        console.log(this.state);
+        fetchClient.post("register", this.state)
+            .then(() => {
+                console.log('Register successful');
+                window.location.replace('/login');
+            })
+            .catch(error => this.setState({errors: error.response.data}))
     };
 
     onKeyDown = event => {
-        if(event.key === 'Enter')
+        if (event.key === 'Enter')
             this.registerClicked();
     };
 
@@ -39,13 +44,15 @@ class Registration extends Component {
     render() {
         return (
             <div>
-                <div className="authentication-header-box">
-                    <span className="authentication-text">REGISTRATION</span>
+                <div className="register-header-box">
+                    <span className="register-text">REGISTRATION</span>
                 </div>
-                <div className="authentication-body">
+                <div className="register-body">
+                    {this.state.errors &&
+                    <div className="alert alert-warning">{this.state.errors.map((error, id) => <div
+                        key={id}>{error}<br/></div>)}</div>}
                     <Container fluid>
                         <Row>
-                            {/*{this.state.isUsernameTaken && <div className="alert alert-warning">Username already exists</div>}*/}
                             <Col>
                                 <div className="form-group">
                                     <label htmlFor="username">Username</label>
