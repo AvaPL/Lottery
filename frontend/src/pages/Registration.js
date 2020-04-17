@@ -28,7 +28,10 @@ class Registration extends Component {
 
     registerClicked = () => {
         fetchClient.post("register", this.state)
-            .then(() => console.log('Register successful'))
+            .then(() => {
+                console.log('Register successful');
+                window.location.replace('/login');
+            })
             .catch(error => this.setState({errors: error.response.data}))
     };
 
