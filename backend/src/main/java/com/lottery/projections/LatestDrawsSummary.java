@@ -33,8 +33,8 @@ public class LatestDrawsSummary {
     private Long id;
     private String type;
     private Timestamp drawDate;
-    private float priceWon;
-    private long numbers;
+    private Float priceWon;
+    private Long numbers;
 
     @JsonGetter
     public Integer[] getNumbers() {
