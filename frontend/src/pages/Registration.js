@@ -15,8 +15,7 @@ class Registration extends Component {
         email: '',
         creditCardNumber: '',
         creditCardExpirationDate: '',
-        cvv: '',
-        hasRegistrationFailed: false
+        cvv: ''
     };
 
     handleChange = event => {
@@ -28,10 +27,9 @@ class Registration extends Component {
     };
 
     registerClicked = () => {
-        console.log(this.state);
         fetchClient.post("register", this.state)
             .then(() => console.log('Register successful'))
-            .catch(() => console.log('Register failed'))
+            .catch(error => this.setState({errors: error.response.data}))
     };
 
     onKeyDown = event => {
@@ -47,9 +45,11 @@ class Registration extends Component {
                     <span className="register-text">REGISTRATION</span>
                 </div>
                 <div className="register-body">
+                    {this.state.errors &&
+                    <div className="alert alert-warning">{this.state.errors.map((error, id) => <div
+                        key={id}>{error}<br/></div>)}</div>}
                     <Container fluid>
                         <Row>
-                            {/*{this.state.isUsernameTaken && <div className="alert alert-warning">Username already exists</div>}*/}
                             <Col>
                                 <div className="form-group">
                                     <label htmlFor="username">Username</label>
