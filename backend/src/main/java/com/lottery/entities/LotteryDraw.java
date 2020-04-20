@@ -13,7 +13,7 @@ import java.util.List;
 @Data
 public class LotteryDraw {
     @Id
-    @SequenceGenerator(name = "LOTTERY_DRAW_GENERATOR", sequenceName = "LOTTERY_DRAW_SEQUENCE", allocationSize = 1, initialValue = 1000)
+    @SequenceGenerator(name = "LOTTERY_DRAW_GENERATOR", sequenceName = "LOTTERY_DRAW_SEQUENCE", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "LOTTERY_DRAW_GENERATOR")
     private Long id;
     @NotNull

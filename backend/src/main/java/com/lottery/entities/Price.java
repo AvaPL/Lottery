@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 @Data
 public class Price {
     @Id
-    @SequenceGenerator(name = "PRICE_GENERATOR", sequenceName = "PRICE_SEQUENCE", allocationSize = 1, initialValue = 1000)
+    @SequenceGenerator(name = "PRICE_GENERATOR", sequenceName = "PRICE_SEQUENCE", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PRICE_GENERATOR")
     private Long id;
     @NotNull
