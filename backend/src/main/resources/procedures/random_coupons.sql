@@ -9,7 +9,12 @@ begin
     for i in 1 ..range
         loop
             r_bet_time := SYSDATE - DBMS_RANDOM.value(0, 100);
-            r_account_id := TRUNC(DBMS_RANDOM.VALUE(1, ACCOUNT_SEQUENCE.currval+1));
+            select id
+            into r_account_id
+            from (select id
+                  from ACCOUNT
+                  order by DBMS_RANDOM.VALUE())
+            where rownum = 1;
             insert into COUPON
             values (COUPON_SEQUENCE.nextval, r_bet_time, r_account_id);
         end loop;

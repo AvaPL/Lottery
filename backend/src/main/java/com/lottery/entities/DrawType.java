@@ -20,6 +20,8 @@ public class DrawType {
     private Integer entryCost;
     @NotNull
     private Integer numbersCount;
+    @NotNull
+    private Integer maxValue;
     @OneToMany(mappedBy = "drawType")
     private List<LotteryDraw> lotteryDraws;
     @OneToMany(mappedBy = "drawType")
