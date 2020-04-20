@@ -7,10 +7,10 @@ INSERT INTO COUPON (id, account_id, bet_time) VALUES (COUPON_SEQUENCE.nextval, 2
 INSERT INTO COUPON (id, account_id, bet_time) VALUES (COUPON_SEQUENCE.nextval, 1, TO_TIMESTAMP('2019-04-04 00:41:33','YYYY-MM-DD HH24:MI:SS'));
 INSERT INTO COUPON (id, account_id, bet_time) VALUES (COUPON_SEQUENCE.nextval, 1, TO_TIMESTAMP('2020-01-23 02:52:52','YYYY-MM-DD HH24:MI:SS'));
 
-insert into DRAW_TYPE values (DRAW_TYPE_SEQUENCE.nextval, 5, 'Lotto', 6);
-insert into DRAW_TYPE values (DRAW_TYPE_SEQUENCE.nextval, 3, 'Mini Lotto', 5);
-insert into DRAW_TYPE values (DRAW_TYPE_SEQUENCE.nextval, 2.5, 'Multi Multi', 4);
-insert into DRAW_TYPE values (DRAW_TYPE_SEQUENCE.nextval, 10, 'Euro Jackpot', 6);
+insert into DRAW_TYPE values (DRAW_TYPE_SEQUENCE.nextval, 5, 49, 'Lotto', 6);
+insert into DRAW_TYPE values (DRAW_TYPE_SEQUENCE.nextval, 3, 30, 'Mini Lotto', 5);
+insert into DRAW_TYPE values (DRAW_TYPE_SEQUENCE.nextval, 2.5, 40, 'Multi Multi', 4);
+insert into DRAW_TYPE values (DRAW_TYPE_SEQUENCE.nextval, 10, 60, 'Euro Jackpot', 6);
 
 INSERT INTO LOTTERY_DRAW (id, draw_time, draw_type_id, numbers) VALUES (LOTTERY_DRAW_SEQUENCE.nextval, TO_TIMESTAMP('2017-08-25 06:24:52','YYYY-MM-DD HH24:MI:SS'), 1, 54321);
 INSERT INTO LOTTERY_DRAW (id, draw_time, draw_type_id, numbers) VALUES (LOTTERY_DRAW_SEQUENCE.nextval, TO_TIMESTAMP('2020-04-03 22:40:23','YYYY-MM-DD HH24:MI:SS'), 2, 12345);
