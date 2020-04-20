@@ -7,8 +7,10 @@ INSERT INTO COUPON (id, account_id, bet_time) VALUES (COUPON_SEQUENCE.nextval, 2
 INSERT INTO COUPON (id, account_id, bet_time) VALUES (COUPON_SEQUENCE.nextval, 1, TO_TIMESTAMP('2019-04-04 00:41:33','YYYY-MM-DD HH24:MI:SS'));
 INSERT INTO COUPON (id, account_id, bet_time) VALUES (COUPON_SEQUENCE.nextval, 1, TO_TIMESTAMP('2020-01-23 02:52:52','YYYY-MM-DD HH24:MI:SS'));
 
-INSERT INTO DRAW_TYPE (id, name, entry_cost, numbers_count) VALUES (DRAW_TYPE_SEQUENCE.nextval, 'Multi multi', 2.5, 4);
-INSERT INTO DRAW_TYPE (id, name, entry_cost, numbers_count) VALUES (DRAW_TYPE_SEQUENCE.nextval, 'Euro jackpot', 5, 6);
+insert into DRAW_TYPE values (DRAW_TYPE_SEQUENCE.nextval, 5, 'Lotto', 6);
+insert into DRAW_TYPE values (DRAW_TYPE_SEQUENCE.nextval, 3, 'Mini Lotto', 5);
+insert into DRAW_TYPE values (DRAW_TYPE_SEQUENCE.nextval, 2.5, 'Multi Multi', 4);
+insert into DRAW_TYPE values (DRAW_TYPE_SEQUENCE.nextval, 10, 'Euro Jackpot', 6);
 
 INSERT INTO LOTTERY_DRAW (id, draw_time, draw_type_id, numbers) VALUES (LOTTERY_DRAW_SEQUENCE.nextval, TO_TIMESTAMP('2017-08-25 06:24:52','YYYY-MM-DD HH24:MI:SS'), 1, 54321);
 INSERT INTO LOTTERY_DRAW (id, draw_time, draw_type_id, numbers) VALUES (LOTTERY_DRAW_SEQUENCE.nextval, TO_TIMESTAMP('2020-04-03 22:40:23','YYYY-MM-DD HH24:MI:SS'), 2, 12345);
@@ -22,9 +24,18 @@ INSERT INTO PRICE (id, lottery_draw_id, hits_count, price) VALUES (PRICE_SEQUENC
 INSERT INTO PRICE (id, lottery_draw_id, hits_count, price) VALUES (PRICE_SEQUENCE.nextval, 2, 3, 300);
 INSERT INTO PRICE (id, lottery_draw_id, hits_count, price) VALUES (PRICE_SEQUENCE.nextval, 1, 4, 400);
 
-INSERT INTO PRICE_WEIGHT (id, hits_count, weight, draw_type_id) VALUES (PRICE_WEIGHT_SEQUENCE.nextval, 4, 1, 1);
-INSERT INTO PRICE_WEIGHT (id, hits_count, weight, draw_type_id) VALUES (PRICE_WEIGHT_SEQUENCE.nextval, 5, 10, 1);
-INSERT INTO PRICE_WEIGHT (id, hits_count, weight, draw_type_id) VALUES (PRICE_WEIGHT_SEQUENCE.nextval, 6, 50, 1);
+insert into PRICE_WEIGHT values (PRICE_WEIGHT_SEQUENCE.nextval, 3, 10, (select id from DRAW_TYPE where NAME = 'Lotto'));
+insert into PRICE_WEIGHT values (PRICE_WEIGHT_SEQUENCE.nextval, 4, 100, (select id from DRAW_TYPE where NAME = 'Lotto'));
+insert into PRICE_WEIGHT values (PRICE_WEIGHT_SEQUENCE.nextval, 5, 1000, (select id from DRAW_TYPE where NAME = 'Lotto'));
+insert into PRICE_WEIGHT values (PRICE_WEIGHT_SEQUENCE.nextval, 6, 10000, (select id from DRAW_TYPE where NAME = 'Lotto'));
+insert into PRICE_WEIGHT values (PRICE_WEIGHT_SEQUENCE.nextval, 4, 10, (select id from DRAW_TYPE where NAME = 'Mini Lotto'));
+insert into PRICE_WEIGHT values (PRICE_WEIGHT_SEQUENCE.nextval, 5, 1000, (select id from DRAW_TYPE where NAME = 'Mini Lotto'));
+insert into PRICE_WEIGHT values (PRICE_WEIGHT_SEQUENCE.nextval, 3, 100, (select id from DRAW_TYPE where NAME = 'Multi Multi'));
+insert into PRICE_WEIGHT values (PRICE_WEIGHT_SEQUENCE.nextval, 4, 1000, (select id from DRAW_TYPE where NAME = 'Multi Multi'));
+insert into PRICE_WEIGHT values (PRICE_WEIGHT_SEQUENCE.nextval, 3, 10, (select id from DRAW_TYPE where NAME = 'Euro Jackpot'));
+insert into PRICE_WEIGHT values (PRICE_WEIGHT_SEQUENCE.nextval, 4, 100, (select id from DRAW_TYPE where NAME = 'Euro Jackpot'));
+insert into PRICE_WEIGHT values (PRICE_WEIGHT_SEQUENCE.nextval, 5, 1000, (select id from DRAW_TYPE where NAME = 'Euro Jackpot'));
+insert into PRICE_WEIGHT values (PRICE_WEIGHT_SEQUENCE.nextval, 6, 10000, (select id from DRAW_TYPE where NAME = 'Euro Jackpot'));
 
 INSERT INTO ENTRY (id, coupon_id, lottery_draw_id, numbers, price_won) VALUES (ENTRY_SEQUENCE.nextval, 1, 1, 12467, null);
 INSERT INTO ENTRY (id, coupon_id, lottery_draw_id, numbers, price_won) VALUES (ENTRY_SEQUENCE.nextval, 2, 3, 12347, 45);
