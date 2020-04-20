@@ -10,7 +10,7 @@ import java.util.List;
 @Data
 public class DrawType {
     @Id
-    @SequenceGenerator(name = "DRAW_TYPE_GENERATOR", sequenceName = "DRAW_TYPE_SEQUENCE", allocationSize = 1, initialValue = 1000)
+    @SequenceGenerator(name = "DRAW_TYPE_GENERATOR", sequenceName = "DRAW_TYPE_SEQUENCE", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "DRAW_TYPE_GENERATOR")
     private Long id;
     @NotNull

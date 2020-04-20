@@ -11,7 +11,7 @@ import java.util.List;
 @Data
 public class Coupon {
     @Id
-    @SequenceGenerator(name = "COUPON_GENERATOR", sequenceName = "COUPON_SEQUENCE", allocationSize = 1, initialValue = 1000)
+    @SequenceGenerator(name = "COUPON_GENERATOR", sequenceName = "COUPON_SEQUENCE", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "COUPON_GENERATOR")
     private Long id;
     @NotNull

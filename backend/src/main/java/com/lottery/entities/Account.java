@@ -21,7 +21,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class Account implements UserDetails {
     @Id
-    @SequenceGenerator(name = "ACCOUNT_GENERATOR", sequenceName = "ACCOUNT_SEQUENCE", allocationSize = 1, initialValue = 1000)
+    @SequenceGenerator(name = "ACCOUNT_GENERATOR", sequenceName = "ACCOUNT_SEQUENCE", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ACCOUNT_GENERATOR")
     private Long id;
     @NotNull
