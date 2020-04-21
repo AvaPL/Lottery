@@ -16,11 +16,11 @@ public class Entry {
     private Long numbers;
     private Float priceWon;
     @NotNull
-    @ManyToOne //TODO: Might be not optimal (eager fetch).
+    @ManyToOne
     @JoinColumn(name = "coupon_id")
     private Coupon coupon;
     @NotNull
-    @ManyToOne //TODO: Might be not optimal (eager fetch).
+    @ManyToOne
     @JoinColumn(name = "lottery_draw_id")
     private LotteryDraw lotteryDraw;
 }

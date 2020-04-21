@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -17,7 +18,7 @@ public class LotteryDraw {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "LOTTERY_DRAW_GENERATOR")
     private Long id;
     @NotNull
-    private Timestamp drawTime;
+    private LocalDate drawTime;
     private Long numbers;
     @OneToMany(mappedBy = "lotteryDraw")
     private List<Entry> entries;
