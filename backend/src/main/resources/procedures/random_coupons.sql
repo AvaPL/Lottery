@@ -1,10 +1,8 @@
 create or replace procedure random_coupons(range in int)
 as
     seed       varchar2(100);
-    -- TODO: Change date to timestamp.
-    r_bet_time date;
-    -- TODO: Change to number(19).
-    r_account_id int;
+    r_bet_time timestamp;
+    r_account_id number(19);
 begin
     seed := TO_CHAR(SYSTIMESTAMP, 'YYYYDDMMHH24MISSFFFF');
     DBMS_RANDOM.SEED(seed);
