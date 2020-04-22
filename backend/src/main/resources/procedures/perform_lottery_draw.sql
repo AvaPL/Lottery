@@ -25,12 +25,14 @@ begin
     from DRAW_TYPE dt
     where dt.ID = p_draw_type_id;
 
+    -- Generate random numbers
     r_numbers := RANDOM_NUMBERS(numbers_count, max_value);
 
     update LOTTERY_DRAW
     set NUMBERS = r_numbers
     where ID = p_lottery_draw_id;
 
+    -- Calculate total price to win in this lottery draw
     select count(*) * max(dt.ENTRY_COST)
     into total_price
     from ENTRY e
@@ -42,6 +44,7 @@ begin
     from PRICE_WEIGHT pw
     where pw.DRAW_TYPE_ID = p_draw_type_id;
 
+    -- Set price for each hits_count
     for p_price in (select p.ID, p.HITS_COUNT, pw.WEIGHT
                     from PRICE p
                              join PRICE_WEIGHT pw on p.HITS_COUNT = pw.HITS_COUNT
@@ -53,8 +56,10 @@ begin
             where PRICE.ID = p_price.ID;
         end loop;
 
+    -- Calculate price_won for each entry
     for p_entry in (select ID, NUMBERS from ENTRY where LOTTERY_DRAW_ID = 2)
         loop
+            -- Calculate number of hits for this entry
             bitand_result := BITAND(r_numbers, p_entry.NUMBERS);
             p_hits_count := 0;
             while bitand_result > 0
@@ -70,6 +75,7 @@ begin
             into p_price_won
             from dual;
 
+            -- Set price_won in this entry
             if p_price_won IS NOT NULL then
                 update ENTRY
                 set PRICE_WON = p_price_won
