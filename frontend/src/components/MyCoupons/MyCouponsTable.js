@@ -3,6 +3,7 @@ import MyCouponsTableEntry from "./MyCouponsTableEntry";
 import "../../stylesheets/TableView.css";
 import AuthenticationService from "../Authentication/AuthenticationService";
 import fetchClient from "../Authentication/fetchClient";
+import "./MyCouponsTable.css";
 
 class MyCouponsTable extends Component {
     state = {
@@ -66,7 +67,14 @@ class MyCouponsTable extends Component {
         } else if (!this.state.isLoaded) {
             return <span className="loading-text">Loading...</span>;
         } else {
-            return this.state.entries.map(entry => <MyCouponsTableEntry key={entry.id} entry={entry}/>);
+            if (this.state.entries.length > 0)
+                return this.state.entries.map(entry => <MyCouponsTableEntry key={entry.id} entry={entry}/>);
+            else
+                return <div className="container">
+                    <div className="center">
+                        <span className="no-coupons-text">You have no coupons and therefore have no chance to become a millionaire :C</span>
+                    </div>
+                </div>
         }
     }
 }
