@@ -1,88 +1,23 @@
 import React, {Component} from "react";
 import DropdownButton from "react-bootstrap/DropdownButton";
-import Dropdown from "react-bootstrap/Dropdown";
 import './NumbersDropdown.css'
+import NumbersCheckbox from "./NumbersCheckbox";
 
 class NumbersDropdown extends Component {
-    state = {};
+    state = {maxValue: 20};
+
+    onChange = event => {
+        console.log('Checked: ', event.target.checked);
+    };
 
     render() {
         return <div className="col-sm">
             <div className="numbers-dropdown">
                 <DropdownButton className="checkbox-menu" size="lg" title="Numbers">
                     <div className="numbers-menu overflow-auto numbers-scrollbar">
-                        <li>
-                            <label>
-                                <input type="checkbox" name="name"/>
-                                1
-                            </label>
-                        </li>
-                        <li>
-                            <label>
-                                <input type="checkbox" name="name"/>
-                                2
-                            </label>
-                        </li>
-                        <li>
-                            <label>
-                                <input type="checkbox" name="name"/>
-                                3
-                            </label>
-                        </li>
-                        <li>
-                            <label>
-                                <input type="checkbox" name="name"/>
-                                4
-                            </label>
-                        </li>
-                        <li>
-                            <label>
-                                <input type="checkbox" name="name"/>
-                                5
-                            </label>
-                        </li>
-                        <li>
-                            <label>
-                                <input type="checkbox" name="name"/>
-                                6
-                            </label>
-                        </li>
-                        <li>
-                            <label>
-                                <input type="checkbox" name="name"/>
-                                7
-                            </label>
-                        </li>
-                        <li>
-                            <label>
-                                <input type="checkbox" name="name"/>
-                                8
-                            </label>
-                        </li>
-                        <li>
-                            <label>
-                                <input type="checkbox" name="name"/>
-                                9
-                            </label>
-                        </li>
-                        <li>
-                            <label>
-                                <input type="checkbox" name="name"/>
-                                10
-                            </label>
-                        </li>
-                        <li>
-                            <label>
-                                <input type="checkbox" name="name"/>
-                                11
-                            </label>
-                        </li>
-                        <li>
-                            <label>
-                                <input type="checkbox" name="name"/>
-                                12
-                            </label>
-                        </li>
+                        {[...Array(this.state.maxValue)].map((a, index) => <NumbersCheckbox key={index}
+                                                                                            number={index + 1}
+                                                                                            onChange={this.onChange}/>)}
                     </div>
                 </DropdownButton>
             </div>
