@@ -1,3 +1,4 @@
+-- Populate the DRAW_TYPE table
 create or replace procedure draw_types
 as
 begin
