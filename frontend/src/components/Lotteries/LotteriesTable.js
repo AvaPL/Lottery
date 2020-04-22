@@ -59,9 +59,21 @@ class LotteriesTable extends Component {
 
     getEntries() {
         if (this.state.error) {
-            return <span className="error-text">Error</span>;
+            return (
+                <div className="container">
+                    <div className="center">
+                        <span className="error-text">Error</span>
+                    </div>
+                </div>
+            );
         } else if (!this.state.isLoaded) {
-            return <span className="loading-text">Loading...</span>;
+            return (
+                <div className="container">
+                    <div className="center">
+                        <span className="loading-text">Loading...</span>
+                    </div>
+                </div>
+            );
         } else {
             return this.state.entries.map(entry => <LotteriesTableEntry key={entry.id} entry={entry}/>);
         }

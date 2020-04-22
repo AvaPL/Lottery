@@ -65,7 +65,7 @@ class MyCouponsTable extends Component {
         if (this.state.error) {
             return (
                 <div className="container">
-                    <div className="vertical-center">
+                    <div className="center">
                         <span className="error-text">Error</span>
                     </div>
                 </div>
@@ -73,7 +73,7 @@ class MyCouponsTable extends Component {
         } else if (!this.state.isLoaded) {
             return (
                 <div className="container">
-                    <div className="vertical-center">
+                    <div className="center">
                         <span className="loading-text">Loading...</span>
                     </div>
                 </div>
@@ -84,7 +84,7 @@ class MyCouponsTable extends Component {
             else
                 return (
                     <div className="container">
-                        <div className="vertical-center">
+                        <div className="center">
                             <span className="no-coupons-text">You have no coupons and therefore have no chance to become a millionaire :C</span>
                         </div>
                     </div>

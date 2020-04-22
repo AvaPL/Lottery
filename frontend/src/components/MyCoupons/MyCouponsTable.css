@@ -7,16 +7,3 @@
     font-size: 30px;
     color: #0069d9;
 }
-
-.container {
-    height: calc(100vh - 500px);
-    position: relative;
-    text-align: center;
-}
-
-.vertical-center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
