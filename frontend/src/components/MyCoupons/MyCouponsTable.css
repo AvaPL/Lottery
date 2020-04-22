@@ -1,0 +1,9 @@
+.MyCouponsTable {
+    text-align: center;
+}
+
+.no-coupons-text {
+    font-family: Roboto, sans-serif;
+    font-size: 30px;
+    color: #0069d9;
+}

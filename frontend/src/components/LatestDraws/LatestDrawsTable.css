@@ -6,3 +6,15 @@
     height: calc(100vh - 300px);
 }
 
+.latest-draws-container {
+    height: calc(100vh - 350px);
+    position: relative;
+    text-align: center;
+}
+
+.latest-draws-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

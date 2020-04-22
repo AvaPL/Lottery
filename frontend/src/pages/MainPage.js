@@ -5,7 +5,7 @@ class MainPage extends React.Component {
     render() {
         return (
             <div className="MainPage">
-                <div className="center">
+                <div className="vertical-center">
                     <span className="quote">You must play boldly to win.<br/></span>
                     <span className="quote-author">- Arnold Palmer</span>
                 </div>
