@@ -1,8 +1,14 @@
-.dropdown-toggle {
+.lottery-type-dropdown{
     width: 50%;
     margin-top: 2px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.dropdown-toggle {
+    width: 100%;
 }
 
 .dropdown-menu {
-    width: 50%;
+    width: 100%;
 }

@@ -14,13 +14,15 @@ class LotteryTypeDropdown extends Component {
 
     render() {
         return <div className="col-sm">
-            <DropdownButton size="lg" title={this.state.title}
-                            onSelect={this.handleSelect}>
-                <Dropdown.Item eventKey="Lotto">Lotto</Dropdown.Item>
-                <Dropdown.Item eventKey="Mini Lotto">Mini Lotto</Dropdown.Item>
-                <Dropdown.Item eventKey="Multi Multi">Multi Multi</Dropdown.Item>
-                <Dropdown.Item eventKey="Euro Jackpot">Euro Jackpot</Dropdown.Item>
-            </DropdownButton>
+            <div className="lottery-type-dropdown">
+                <DropdownButton size="lg" title={this.state.title}
+                                onSelect={this.handleSelect}>
+                    <Dropdown.Item eventKey="Lotto">Lotto</Dropdown.Item>
+                    <Dropdown.Item eventKey="Mini Lotto">Mini Lotto</Dropdown.Item>
+                    <Dropdown.Item eventKey="Multi Multi">Multi Multi</Dropdown.Item>
+                    <Dropdown.Item eventKey="Euro Jackpot">Euro Jackpot</Dropdown.Item>
+                </DropdownButton>
+            </div>
         </div>;
     }
 }

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './BuyACouponTableEntry.css';
 import '../../stylesheets/TableView.css';
 import LotteryTypeDropdown from "./LotteryTypeDropdown";
+import NumbersDropdown from "./NumbersDropdown";
 
 class BuyACouponTableEntry extends Component {
     render() {
@@ -13,9 +14,10 @@ class BuyACouponTableEntry extends Component {
                             <span className="column-entry">{this.props.entry.id}</span>
                         </div>
                         <LotteryTypeDropdown/>
-                        <div className="col-sm">
-                            <span className="column-entry">{this.props.entry.numbers}</span>
-                        </div>
+                        <NumbersDropdown/>
+                        {/*<div className="col-sm">*/}
+                        {/*    <span className="column-entry">{this.props.entry.numbers}</span>*/}
+                        {/*</div>*/}
                     </div>
                     <div className="delete-button">
                         <span className="delete-button-text"
