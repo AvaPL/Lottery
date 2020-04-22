@@ -63,18 +63,32 @@ class MyCouponsTable extends Component {
 
     getEntries() {
         if (this.state.error) {
-            return <span className="error-text">Error</span>;
+            return (
+                <div className="container">
+                    <div className="vertical-center">
+                        <span className="error-text">Error</span>
+                    </div>
+                </div>
+            );
         } else if (!this.state.isLoaded) {
-            return <span className="loading-text">Loading...</span>;
+            return (
+                <div className="container">
+                    <div className="vertical-center">
+                        <span className="loading-text">Loading...</span>
+                    </div>
+                </div>
+            );
         } else {
             if (this.state.entries.length > 0)
                 return this.state.entries.map(entry => <MyCouponsTableEntry key={entry.id} entry={entry}/>);
             else
-                return <div className="container">
-                    <div className="center">
-                        <span className="no-coupons-text">You have no coupons and therefore have no chance to become a millionaire :C</span>
+                return (
+                    <div className="container">
+                        <div className="vertical-center">
+                            <span className="no-coupons-text">You have no coupons and therefore have no chance to become a millionaire :C</span>
+                        </div>
                     </div>
-                </div>
+                );
         }
     }
 }
