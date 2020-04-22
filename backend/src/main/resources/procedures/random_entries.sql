@@ -1,9 +1,9 @@
 create or replace procedure random_entries(range in int)
 as
     seed              varchar2(100);
-    r_numbers         int;
-    r_coupon_id       int;
-    r_lottery_draw_id int;
+    r_numbers         number(19);
+    r_coupon_id       number(19);
+    r_lottery_draw_id number(19);
     r_numbers_count   int;
     r_max_value       int;
 begin
