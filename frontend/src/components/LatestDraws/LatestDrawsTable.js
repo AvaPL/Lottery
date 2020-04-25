@@ -3,6 +3,7 @@ import "./LatestDrawsTable.css";
 import "../../stylesheets/TableView.css";
 import LatestDrawsTableEntry from "./LatestDrawsTableEntry";
 import fetchClient from "../Authentication/fetchClient";
+import Spinner from "react-bootstrap/Spinner";
 
 class LatestDrawsTable extends Component {
     state = {
@@ -59,9 +60,22 @@ class LatestDrawsTable extends Component {
 
     getEntries() {
         if (this.state.error) {
-            return <span className="error-text">Error</span>;
+            return (
+                <div className="latest-draws-container">
+                    <div className="latest-draws-center">
+                        <span className="error-text">Error</span>
+                    </div>
+                </div>
+            );
         } else if (!this.state.isLoaded) {
-            return <span className="loading-text">Loading...</span>;
+            return (
+                <div className="latest-draws-container">
+                    <div className="latest-draws-center">
+                        <Spinner className="spinner-border text-primary" role="status"/>
+                        <span className="loading-text"> Loading...</span>
+                    </div>
+                </div>
+            );
         } else {
             return this.state.entries.map(entry => <LatestDrawsTableEntry key={entry.id} entry={entry}/>);
         }
