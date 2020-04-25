@@ -33,6 +33,7 @@ class LatestDrawsTable extends Component {
                 minute: 'numeric'
             });
             e.numbers = e.numbers.join(", ");
+            e.priceWon = e.priceWon === null ? "-" : e.priceWon + " €";
         };
     }
 
