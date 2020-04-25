@@ -5,6 +5,38 @@ import LotteryTypeDropdown from "./LotteryTypeDropdown";
 import NumbersDropdown from "./NumbersDropdown";
 
 class BuyACouponTableEntry extends Component {
+    state = {
+        lotteryTypes: [
+            {
+                name: "Lotto",
+                maxValue: 50,
+                numbersCount: 6
+            },
+            {
+                name: "Mini Lotto",
+                maxValue: 20,
+                numbersCount: 4
+            },
+            {
+                name: "Multi Multi",
+                maxValue: 30,
+                numbersCount: 5
+            },
+            {
+                name: "Euro Jackpot",
+                maxValue: 60,
+                numbersCount: 6
+            }
+        ]
+    };
+
+    onLotteryTypeChanged = lotteryType => {
+        console.log('Lottery type changed to: ', lotteryType);
+        const newState = this.state;
+        newState.lotteryType = lotteryType;
+        this.setState(newState);
+    };
+
     render() {
         return (
             <div>
@@ -13,11 +45,9 @@ class BuyACouponTableEntry extends Component {
                         <div className="col-sm">
                             <span className="column-entry">{this.props.entry.id}</span>
                         </div>
-                        <LotteryTypeDropdown/>
-                        <NumbersDropdown/>
-                        {/*<div className="col-sm">*/}
-                        {/*    <span className="column-entry">{this.props.entry.numbers}</span>*/}
-                        {/*</div>*/}
+                        <LotteryTypeDropdown lotteryTypes={this.state.lotteryTypes}
+                                             onLotteryTypeChanged={this.onLotteryTypeChanged}/>
+                        <NumbersDropdown lotteryType={this.state.lotteryType}/>
                     </div>
                     <div className="delete-button">
                         <span className="delete-button-text"

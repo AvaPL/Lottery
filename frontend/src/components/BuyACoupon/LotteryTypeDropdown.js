@@ -5,22 +5,21 @@ import './LotteryTypeDropdown.css'
 
 class LotteryTypeDropdown extends Component {
     state = {
-        title: "Lottery type"
+        lotteryType: 'Lottery type'
     };
 
     handleSelect = eventKey => {
-        this.setState({title: eventKey})
+        this.setState({lotteryType: eventKey});
+        const lotteryType = this.props.lotteryTypes.filter(type => type.name === eventKey)[0];
+        this.props.onLotteryTypeChanged(lotteryType);
     };
 
     render() {
         return <div className="col-sm">
             <div className="lottery-type-dropdown">
-                <DropdownButton size="lg" title={this.state.title}
-                                onSelect={this.handleSelect}>
-                    <Dropdown.Item eventKey="Lotto">Lotto</Dropdown.Item>
-                    <Dropdown.Item eventKey="Mini Lotto">Mini Lotto</Dropdown.Item>
-                    <Dropdown.Item eventKey="Multi Multi">Multi Multi</Dropdown.Item>
-                    <Dropdown.Item eventKey="Euro Jackpot">Euro Jackpot</Dropdown.Item>
+                <DropdownButton size="lg" title={this.state.lotteryType} onSelect={this.handleSelect}>
+                    {this.props.lotteryTypes.map(type => <Dropdown.Item key={type.name}
+                                                                        eventKey={type.name}>{type.name}</Dropdown.Item>)}
                 </DropdownButton>
             </div>
         </div>;
