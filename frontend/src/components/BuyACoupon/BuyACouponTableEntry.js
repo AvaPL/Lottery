@@ -3,33 +3,53 @@ import './BuyACouponTableEntry.css';
 import '../../stylesheets/TableView.css';
 import LotteryTypeDropdown from "./LotteryTypeDropdown";
 import NumbersDropdown from "./NumbersDropdown";
+import fetchClient from "../Authentication/fetchClient";
 
 class BuyACouponTableEntry extends Component {
     state = {
-        lotteryTypes: [
-            {
-                name: "Lotto",
-                maxValue: 50,
-                numbersCount: 6
-            },
-            {
-                name: "Mini Lotto",
-                maxValue: 20,
-                numbersCount: 4
-            },
-            {
-                name: "Multi Multi",
-                maxValue: 30,
-                numbersCount: 5
-            },
-            {
-                name: "Euro Jackpot",
-                maxValue: 60,
-                numbersCount: 6
-            }
-        ],
+        lotteryTypes: [],
+        error: null,
+        isLoaded: false,
         checkedCount: 0
     };
+
+    componentDidMount() {
+        this.getDrawTypes().then(this.processDrawTypes(), this.handleError());
+    }
+
+    getDrawTypes() {
+        return fetchClient.get("drawTypes").then(res=>res.data._embedded.drawTypes);
+    }
+
+    processDrawTypes(){
+        return drawTypes => {
+            drawTypes.forEach(this.formatDrawType());
+            const newState = this.state;
+            newState.isLoaded = true;
+            newState.lotteryTypes = drawTypes;
+            this.setState(newState);
+        }
+    }
+
+    formatDrawType(){
+        return t => {
+            return {
+                name: t.name,
+                numbersCount: t.numbersCount,
+                maxValue: t.maxValue
+            }
+        }
+    }
+
+    handleError() {
+        return error => {
+            const newState = this.state;
+            newState.isLoaded = true;
+            newState.error = error;
+            this.setState(newState);
+            console.log(error);
+        }
+    }
 
     onCheckboxChange = event => {
         const newState = this.state;
