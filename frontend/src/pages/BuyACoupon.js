@@ -5,6 +5,7 @@ import BuyACouponTableHeader from "../components/BuyACoupon/BuyACouponTableHeade
 import BuyACouponTable from "../components/BuyACoupon/BuyACouponTable";
 import "../components/BuyACouponButton/BuyACouponButton.css";
 import fetchClient from "../components/Authentication/fetchClient";
+import AuthenticationService from "../components/Authentication/AuthenticationService";
 
 class BuyACoupon extends Component {
     state = {
@@ -34,7 +35,6 @@ class BuyACoupon extends Component {
         const number = parseInt(event.target.name);
         entry.numbers = event.target.checked ? entry.numbers.concat(number) : entry.numbers.filter(n => n !== number);
         this.setState(newState);
-        console.log(newState);
     };
 
     handleLotteryTypeChange = (id, lotteryType) => {
@@ -44,12 +44,12 @@ class BuyACoupon extends Component {
     };
 
     buyButtonClicked = () => {
-         if(this.areEntriesValid()) {
+        if (this.areEntriesValid()) {
             const postData = this.state.entries;
             postData.forEach(e => {
                 e.lotteryType = e.lotteryType.name;
             });
-            fetchClient.post("buy", postData).then(() => {
+            fetchClient.post("buy/" + AuthenticationService.getLoggedInUserName(), postData).then(() => {
                 console.log("buying successful");
                 this.props.history.push('/my-coupons')
             }).catch(error => {
