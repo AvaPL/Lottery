@@ -4,6 +4,7 @@ import "../../stylesheets/TableView.css";
 import AuthenticationService from "../Authentication/AuthenticationService";
 import fetchClient from "../Authentication/fetchClient";
 import "./MyCouponsTable.css";
+import Spinner from "react-bootstrap/Spinner";
 
 class MyCouponsTable extends Component {
     state = {
@@ -74,7 +75,8 @@ class MyCouponsTable extends Component {
             return (
                 <div className="container">
                     <div className="center">
-                        <span className="loading-text">Loading...</span>
+                        <Spinner className="spinner-border text-primary" role="status"/>
+                        <span className="loading-text"> Loading...</span>
                     </div>
                 </div>
             );

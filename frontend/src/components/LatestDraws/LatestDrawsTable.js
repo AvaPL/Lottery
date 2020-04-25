@@ -3,6 +3,7 @@ import "./LatestDrawsTable.css";
 import "../../stylesheets/TableView.css";
 import LatestDrawsTableEntry from "./LatestDrawsTableEntry";
 import fetchClient from "../Authentication/fetchClient";
+import Spinner from "react-bootstrap/Spinner";
 
 class LatestDrawsTable extends Component {
     state = {
@@ -70,7 +71,8 @@ class LatestDrawsTable extends Component {
             return (
                 <div className="latest-draws-container">
                     <div className="latest-draws-center">
-                        <span className="loading-text">Loading...</span>
+                        <Spinner className="spinner-border text-primary" role="status"/>
+                        <span className="loading-text"> Loading...</span>
                     </div>
                 </div>
             );

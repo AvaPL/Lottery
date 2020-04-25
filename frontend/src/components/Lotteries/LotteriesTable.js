@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import LotteriesTableEntry from "./LotteriesTableEntry";
 import "../../stylesheets/TableView.css";
 import fetchClient from "../Authentication/fetchClient";
+import Spinner from "react-bootstrap/Spinner";
 
 class LotteriesTable extends Component {
     state = {
@@ -70,7 +71,8 @@ class LotteriesTable extends Component {
             return (
                 <div className="container">
                     <div className="center">
-                        <span className="loading-text">Loading...</span>
+                        <Spinner className="spinner-border text-primary" role="status"/>
+                        <span className="loading-text"> Loading...</span>
                     </div>
                 </div>
             );
