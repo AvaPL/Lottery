@@ -1,5 +1,5 @@
 -- Populate ACCOUNT with random data
-create or replace procedure random_accounts(range in int)
+create or replace procedure random_accounts(amount in int)
 as
     seed                          varchar2(100);
     r_credit_card_expiration_date date;
@@ -14,7 +14,7 @@ begin
     DBMS_RANDOM.SEED(seed);
 
     -- Insert accounts populated with random data
-    for i in 1 ..range
+    for i in 1 ..amount
         loop
             r_username := DBMS_RANDOM.STRING('a', TRUNC(DBMS_RANDOM.value(10, 31)));
             r_credit_card_expiration_date := SYSDATE + DBMS_RANDOM.value(0, 365 * 5 + 1);

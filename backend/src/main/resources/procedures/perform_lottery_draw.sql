@@ -1,6 +1,6 @@
 create or replace procedure perform_lottery_draw(p_lottery_draw_id in number)
 as
-    bitand_result     number(19);
+    bitand_result      number(19);
     max_value          int;
     numbers_count      int;
     p_draw_type_id     number(19);

@@ -5,7 +5,7 @@ import './LotteryTypeDropdown.css'
 
 class LotteryTypeDropdown extends Component {
     state = {
-        title: "lottery type"
+        title: "Lottery type"
     };
 
     handleSelect = eventKey => {

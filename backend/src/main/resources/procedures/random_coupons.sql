@@ -1,4 +1,4 @@
-create or replace procedure random_coupons(range in int)
+create or replace procedure random_coupons(amount in int)
 as
     seed       varchar2(100);
     r_bet_time timestamp;
@@ -9,7 +9,7 @@ begin
     DBMS_RANDOM.SEED(seed);
 
     -- Insert coupons populated with random data
-    for i in 1 ..range
+    for i in 1 ..amount
         loop
             -- Pick a random bet time in last 100 days
             r_bet_time := SYSDATE - DBMS_RANDOM.value(0, 100);
