@@ -4,10 +4,20 @@ import './NumbersDropdown.css'
 import NumbersCheckbox from "./NumbersCheckbox";
 
 class NumbersDropdown extends Component {
-    state = {maxValue: 20};
+    state = {
+        maxValue: 20,
+        numbersCount: 5,
+        checkedCount: 0
+    };
 
     onChange = event => {
-        console.log('Checked: ', event.target.checked);
+        const newState = this.state;
+        newState.checkedCount += event.target.checked ? 1 : -1;
+        this.setState(newState);
+    };
+
+    isCountReached = () => {
+        return this.state.checkedCount >= this.state.numbersCount;
     };
 
     render() {
@@ -17,6 +27,7 @@ class NumbersDropdown extends Component {
                     <div className="numbers-menu overflow-auto numbers-scrollbar">
                         {[...Array(this.state.maxValue)].map((a, index) => <NumbersCheckbox key={index}
                                                                                             number={index + 1}
+                                                                                            isCountReached={this.isCountReached}
                                                                                             onChange={this.onChange}/>)}
                     </div>
                 </DropdownButton>
