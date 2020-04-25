@@ -4,35 +4,28 @@ import './NumbersDropdown.css'
 import NumbersCheckbox from "./NumbersCheckbox";
 
 class NumbersDropdown extends Component {
-    state = {
-        maxValue: 20,
-        numbersCount: 5,
-        checkedCount: 0
-    };
-
-    onChange = event => {
-        const newState = this.state;
-        newState.checkedCount += event.target.checked ? 1 : -1;
-        this.setState(newState);
-    };
-
-    isCountReached = () => {
-        return this.state.checkedCount >= this.state.numbersCount;
-    };
 
     render() {
         return <div className="col-sm">
             <div className="numbers-dropdown">
-                <DropdownButton className="checkbox-menu" size="lg" title="Numbers">
-                    <div className="numbers-menu overflow-auto numbers-scrollbar">
-                        {[...Array(this.state.maxValue)].map((a, index) => <NumbersCheckbox key={index}
-                                                                                            number={index + 1}
-                                                                                            isCountReached={this.isCountReached}
-                                                                                            onChange={this.onChange}/>)}
-                    </div>
-                </DropdownButton>
+                {this.getDropdownButton()}
             </div>
         </div>;
+    }
+
+    getDropdownButton() {
+        if (this.props.lotteryType)
+            return <DropdownButton className="checkbox-menu" size="lg" title="Numbers">
+                <div className="numbers-menu overflow-auto numbers-scrollbar">
+                    {[...Array(this.props.lotteryType.maxValue)].map((a, index) => <NumbersCheckbox
+                        key={this.props.lotteryType.name + index}
+                        number={index + 1}
+                        isCountReached={this.props.isCountReached}
+                        onChange={this.props.onCheckboxChange}/>)}
+                </div>
+            </DropdownButton>;
+        else
+            return <DropdownButton className="checkbox-menu" size="lg" title="Numbers" disabled/>
     }
 }
 

@@ -13,7 +13,8 @@ class NumbersCheckbox extends Component {
     render() {
         return <li>
             <label>
-                <input type="checkbox" name={this.props.number} disabled={!this.state.checked && this.props.isCountReached()}
+                <input type="checkbox" name={this.props.number}
+                       disabled={!this.state.checked && this.props.isCountReached()}
                        onChange={this.onChange}/>
                 {this.props.number}
             </label>

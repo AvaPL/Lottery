@@ -27,13 +27,25 @@ class BuyACouponTableEntry extends Component {
                 maxValue: 60,
                 numbersCount: 6
             }
-        ]
+        ],
+        checkedCount: 0
+    };
+
+    onCheckboxChange = event => {
+        const newState = this.state;
+        newState.checkedCount += event.target.checked ? 1 : -1;
+        this.setState(newState);
+    };
+
+    isCountReached = () => {
+        return this.state.checkedCount >= this.state.lotteryType.numbersCount;
     };
 
     onLotteryTypeChanged = lotteryType => {
-        console.log('Lottery type changed to: ', lotteryType);
+        if (this.state.lotteryType === lotteryType) return;
         const newState = this.state;
         newState.lotteryType = lotteryType;
+        newState.checkedCount = 0;
         this.setState(newState);
     };
 
@@ -47,7 +59,8 @@ class BuyACouponTableEntry extends Component {
                         </div>
                         <LotteryTypeDropdown lotteryTypes={this.state.lotteryTypes}
                                              onLotteryTypeChanged={this.onLotteryTypeChanged}/>
-                        <NumbersDropdown lotteryType={this.state.lotteryType}/>
+                        <NumbersDropdown lotteryType={this.state.lotteryType} onCheckboxChange={this.onCheckboxChange}
+                                         isCountReached={this.isCountReached}/>
                     </div>
                     <div className="delete-button">
                         <span className="delete-button-text"
