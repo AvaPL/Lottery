@@ -15,9 +15,13 @@ class BuyACoupon extends Component {
     };
 
     handleDelete = id => {
+        console.log(id);
+        console.log(this.state.entries);
         const entries = this.state.entries.filter(e => e.id !== id);
+        console.log(entries);
         entries.forEach((e, i) => e.id = i + 1);
         this.setState({entries});
+        console.log(entries);
     };
 
     handleAdd = () => {
@@ -27,12 +31,27 @@ class BuyACoupon extends Component {
         this.setState({entries});
     };
 
+    handleCheckboxChange = (id, event) => {
+        console.log(id);
+        console.log(event.target.name);
+
+    };
+
+    handleLotteryTypeChange = (id, lotteryType) => {
+        const newState = this.state;
+        newState.entries[id-1].lotteryType = lotteryType;
+        this.setState(newState);
+        console.log(newState.entries);
+    };
+
     render() {
         return (
             <div className="BuyACoupon">
                 <Header text="BUY A COUPON"/>
                 <BuyACouponTableHeader/>
-                <BuyACouponTable entries={this.state.entries} onAdd={this.handleAdd} onDelete={this.handleDelete} />
+                <BuyACouponTable entries={this.state.entries} onAdd={this.handleAdd} onDelete={this.handleDelete}
+                                 onCheckboxChange={this.handleCheckboxChange}
+                                 onLotteryTypeChange={this.handleLotteryTypeChange}/>
                 <p><a href={"/my-coupons"} className="btn btn-buy mt-3"><span
                     className="btn-buy-text">BUY</span></a></p>
             </div>

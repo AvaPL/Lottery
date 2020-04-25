@@ -23,10 +23,10 @@ class BuyACouponTableEntry extends Component {
 
     processDrawTypes(){
         return drawTypes => {
-            drawTypes.forEach(this.formatDrawType());
+            const formattedDrawTypes = drawTypes.map(this.formatDrawType());
             const newState = this.state;
             newState.isLoaded = true;
-            newState.lotteryTypes = drawTypes;
+            newState.lotteryTypes = formattedDrawTypes;
             this.setState(newState);
         }
     }
@@ -51,22 +51,24 @@ class BuyACouponTableEntry extends Component {
         }
     }
 
-    onCheckboxChange = event => {
+    handleCheckboxChange = event => {
         const newState = this.state;
         newState.checkedCount += event.target.checked ? 1 : -1;
         this.setState(newState);
+        this.props.onCheckboxChange(this.props.entry.id, event);
     };
 
     isCountReached = () => {
         return this.state.checkedCount >= this.state.lotteryType.numbersCount;
     };
 
-    onLotteryTypeChanged = lotteryType => {
+    handleLotteryTypeChange = lotteryType => {
         if (this.state.lotteryType === lotteryType) return;
         const newState = this.state;
         newState.lotteryType = lotteryType;
         newState.checkedCount = 0;
         this.setState(newState);
+        this.props.onLotteryTypeChange(this.props.entry.id, lotteryType);
     };
 
     render() {
@@ -78,8 +80,8 @@ class BuyACouponTableEntry extends Component {
                             <span className="column-entry">{this.props.entry.id}</span>
                         </div>
                         <LotteryTypeDropdown lotteryTypes={this.state.lotteryTypes}
-                                             onLotteryTypeChanged={this.onLotteryTypeChanged}/>
-                        <NumbersDropdown lotteryType={this.state.lotteryType} onCheckboxChange={this.onCheckboxChange}
+                                             onLotteryTypeChanged={this.handleLotteryTypeChange}/>
+                        <NumbersDropdown lotteryType={this.state.lotteryType} onCheckboxChange={this.handleCheckboxChange}
                                          isCountReached={this.isCountReached}/>
                     </div>
                     <div className="delete-button">
