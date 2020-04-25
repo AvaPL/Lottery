@@ -35,8 +35,6 @@ public class AccountController {
     @PostMapping("/register")
     public ResponseEntity<List<String>> register(@Valid @RequestBody RegistrationForm form,
                                                  BindingResult bindingResult) {
-        System.out.println(form);
-        System.out.println(form.toAccount(passwordEncoder));
         validateUsername(form.getUsername(), bindingResult);
         validatePassword(form.getPassword(), form.getRepeatPassword(), bindingResult);
         validateEmail(form.getEmail(), bindingResult);

@@ -1,11 +1,11 @@
 -- Populate LOTTERY_DRAW with random data
-create or replace procedure random_lottery_draws(range in int)
+create or replace procedure random_lottery_draws(amount in int)
 as
     r_draw_time     date;
     r_draw_type_id  number(19);
     lottery_draw_id number(19);
 begin
-    for i in 1 ..range
+    for i in 1 ..amount
         loop
             -- Pick a random draw date in following year
             r_draw_time := SYSDATE + DBMS_RANDOM.value(0, 365 + 1);
