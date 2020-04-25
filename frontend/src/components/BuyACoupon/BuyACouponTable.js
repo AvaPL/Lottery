@@ -5,7 +5,6 @@ import Button from "react-bootstrap/Button";
 import "./BuyACouponTable.css"
 
 class BuyACouponTable extends Component {
-
     render() {
         return (
             <div className="scroll-table overflow-auto scrollbar">

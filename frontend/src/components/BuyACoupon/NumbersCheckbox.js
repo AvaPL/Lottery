@@ -5,7 +5,7 @@ class NumbersCheckbox extends Component {
         checked: false
     };
 
-    onChange = event => {
+    handleChange = event => {
         this.setState({checked: event.target.checked});
         this.props.onChange(event);
     };
@@ -15,7 +15,7 @@ class NumbersCheckbox extends Component {
             <label>
                 <input type="checkbox" name={this.props.number}
                        disabled={!this.state.checked && this.props.isCountReached()}
-                       onChange={this.onChange}/>
+                       onChange={this.handleChange}/>
                 {this.props.number}
             </label>
         </li>;

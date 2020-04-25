@@ -8,9 +8,9 @@ import "../components/BuyACouponButton/BuyACouponButton.css";
 class BuyACoupon extends Component {
     state = {
         entries: [
-            {id: 1},
-            {id: 2},
-            {id: 3}
+            {id: 1, numbers: []},
+            {id: 2, numbers: []},
+            {id: 3, numbers: []}
         ]
     };
 
@@ -21,14 +21,19 @@ class BuyACoupon extends Component {
 
     handleAdd = () => {
         const entries = this.state.entries.concat({
-            id: this.state.entries.length ? this.state.entries[this.state.entries.length - 1].id + 1 : 1
+            id: this.state.entries.length ? this.state.entries[this.state.entries.length - 1].id + 1 : 1,
+            numbers: []
         });
         this.setState({entries});
     };
 
     handleCheckboxChange = (id, event) => {
-        console.log(id);
-        console.log(event.target.name);
+        const newState = this.state;
+        const entry = newState.entries.filter(entry => entry.id === id)[0];
+        const number = parseInt(event.target.name);
+        entry.numbers = event.target.checked ? entry.numbers.concat(number) : entry.numbers.filter(n => n !== number);
+        this.setState(newState);
+        console.log(newState);
     };
 
     handleLotteryTypeChange = (id, lotteryType) => {
