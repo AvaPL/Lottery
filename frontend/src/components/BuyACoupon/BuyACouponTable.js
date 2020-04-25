@@ -9,8 +9,8 @@ class BuyACouponTable extends Component {
     render() {
         return (
             <div className="scroll-table overflow-auto scrollbar">
-                {this.props.entries.map(entry => (
-                    <BuyACouponTableEntry key={entry.id} entry={entry} onDelete={this.props.onDelete}
+                {this.props.entries.map((entry, index) => (
+                    <BuyACouponTableEntry key={entry.id} index={index + 1} entry={entry} onDelete={this.props.onDelete}
                                           onCheckboxChange={this.props.onCheckboxChange}
                                           onLotteryTypeChange={this.props.onLotteryTypeChange}/>
                 ))}

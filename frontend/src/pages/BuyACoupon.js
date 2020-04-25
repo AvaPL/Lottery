@@ -15,18 +15,13 @@ class BuyACoupon extends Component {
     };
 
     handleDelete = id => {
-        console.log(id);
-        console.log(this.state.entries);
         const entries = this.state.entries.filter(e => e.id !== id);
-        console.log(entries);
-        entries.forEach((e, i) => e.id = i + 1);
         this.setState({entries});
-        console.log(entries);
     };
 
     handleAdd = () => {
         const entries = this.state.entries.concat({
-            id: this.state.entries[this.state.entries.length - 1].id + 1
+            id: this.state.entries.length ? this.state.entries[this.state.entries.length - 1].id + 1 : 1
         });
         this.setState({entries});
     };
@@ -34,14 +29,12 @@ class BuyACoupon extends Component {
     handleCheckboxChange = (id, event) => {
         console.log(id);
         console.log(event.target.name);
-
     };
 
     handleLotteryTypeChange = (id, lotteryType) => {
         const newState = this.state;
-        newState.entries[id-1].lotteryType = lotteryType;
+        newState.entries.filter(entry => entry.id === id)[0].lotteryType = lotteryType;
         this.setState(newState);
-        console.log(newState.entries);
     };
 
     render() {

@@ -18,10 +18,10 @@ class BuyACouponTableEntry extends Component {
     }
 
     getDrawTypes() {
-        return fetchClient.get("drawTypes").then(res=>res.data._embedded.drawTypes);
+        return fetchClient.get("drawTypes").then(res => res.data._embedded.drawTypes);
     }
 
-    processDrawTypes(){
+    processDrawTypes() {
         return drawTypes => {
             const formattedDrawTypes = drawTypes.map(this.formatDrawType());
             const newState = this.state;
@@ -31,7 +31,7 @@ class BuyACouponTableEntry extends Component {
         }
     }
 
-    formatDrawType(){
+    formatDrawType() {
         return t => {
             return {
                 name: t.name,
@@ -77,11 +77,12 @@ class BuyACouponTableEntry extends Component {
                 <div className="scroll-table-entry">
                     <div className="row">
                         <div className="col-sm">
-                            <span className="column-entry">{this.props.entry.id}</span>
+                            <span className="column-entry">{this.props.index}</span>
                         </div>
                         <LotteryTypeDropdown lotteryTypes={this.state.lotteryTypes}
                                              onLotteryTypeChanged={this.handleLotteryTypeChange}/>
-                        <NumbersDropdown lotteryType={this.state.lotteryType} onCheckboxChange={this.handleCheckboxChange}
+                        <NumbersDropdown lotteryType={this.state.lotteryType}
+                                         onCheckboxChange={this.handleCheckboxChange}
                                          isCountReached={this.isCountReached}/>
                     </div>
                     <div className="delete-button">
