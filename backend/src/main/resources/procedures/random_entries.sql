@@ -1,4 +1,4 @@
-create or replace procedure random_entries(range in int)
+create or replace procedure random_entries(amount in int)
 as
     seed              varchar2(100);
     r_numbers         number(19);
@@ -11,7 +11,7 @@ begin
     seed := TO_CHAR(SYSTIMESTAMP, 'YYYYDDMMHH24MISSFFFF');
     DBMS_RANDOM.SEED(seed);
 
-    for i in 1 ..range
+    for i in 1 ..amount
         loop
             -- Pick a random coupon
             select id
