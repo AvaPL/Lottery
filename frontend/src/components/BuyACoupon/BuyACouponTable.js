@@ -8,6 +8,8 @@ class BuyACouponTable extends Component {
     render() {
         return (
             <div className="scroll-table overflow-auto scrollbar">
+                {this.props.error &&
+                <div className="alert alert-warning buy-a-coupon-alert">{this.props.error}</div>}
                 {this.props.entries.map((entry, index) => (
                     <BuyACouponTableEntry key={entry.id} index={index + 1} entry={entry} onDelete={this.props.onDelete}
                                           onCheckboxChange={this.props.onCheckboxChange}

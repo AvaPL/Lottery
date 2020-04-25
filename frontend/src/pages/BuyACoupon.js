@@ -4,6 +4,7 @@ import Header from "../components/Header/Header";
 import BuyACouponTableHeader from "../components/BuyACoupon/BuyACouponTableHeader";
 import BuyACouponTable from "../components/BuyACoupon/BuyACouponTable";
 import "../components/BuyACouponButton/BuyACouponButton.css";
+import fetchClient from "../components/Authentication/fetchClient";
 
 class BuyACoupon extends Component {
     state = {
@@ -42,6 +43,39 @@ class BuyACoupon extends Component {
         this.setState(newState);
     };
 
+    buyButtonClicked = () => {
+         if(this.areEntriesValid()) {
+            const postData = this.state.entries;
+            postData.forEach(e => {
+                e.lotteryType = e.lotteryType.name;
+            });
+            fetchClient.post("buy", postData).then(() => {
+                console.log("buying successful");
+                this.props.history.push('/my-coupons')
+            }).catch(error => {
+                this.addError("Sorry, internal server error. Please try again later.");
+            })
+        }
+    };
+
+    areEntriesValid = () => {
+        if (this.state.entries.some(e => e.lotteryType == null)) {
+            this.addError("You need to choose lottery type in every entry");
+            return false;
+        }
+        if (this.state.entries.some(e => e.numbers.length !== e.lotteryType.numbersCount)) {
+            this.addError("Invalid numbers count in one of your coupons");
+            return false;
+        }
+        return true;
+    };
+
+    addError = error => {
+        const newState = this.state;
+        newState.error = error;
+        this.setState(newState);
+    };
+
     render() {
         return (
             <div className="BuyACoupon">
@@ -49,8 +83,8 @@ class BuyACoupon extends Component {
                 <BuyACouponTableHeader/>
                 <BuyACouponTable entries={this.state.entries} onAdd={this.handleAdd} onDelete={this.handleDelete}
                                  onCheckboxChange={this.handleCheckboxChange}
-                                 onLotteryTypeChange={this.handleLotteryTypeChange}/>
-                <p><a href={"/my-coupons"} className="btn btn-buy mt-3"><span
+                                 onLotteryTypeChange={this.handleLotteryTypeChange} error={this.state.error}/>
+                <p><a className="btn btn-buy mt-3" onClick={this.buyButtonClicked}><span
                     className="btn-buy-text">BUY</span></a></p>
             </div>
         );
