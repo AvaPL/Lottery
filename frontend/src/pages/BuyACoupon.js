@@ -84,6 +84,7 @@ class BuyACoupon extends Component {
                 <BuyACouponTable entries={this.state.entries} onAdd={this.handleAdd} onDelete={this.handleDelete}
                                  onCheckboxChange={this.handleCheckboxChange}
                                  onLotteryTypeChange={this.handleLotteryTypeChange} error={this.state.error}/>
+                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                 <p><a className="btn btn-buy mt-3" onClick={this.buyButtonClicked}><span
                     className="btn-buy-text">BUY</span></a></p>
             </div>
