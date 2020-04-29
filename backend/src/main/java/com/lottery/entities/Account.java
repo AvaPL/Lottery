@@ -41,6 +41,12 @@ public class Account implements UserDetails {
     private final String cvv;
     @OneToMany(mappedBy = "account")
     private List<Coupon> coupons;
+    @ManyToMany
+    @JoinTable(
+            name = "account_role",
+            joinColumns = @JoinColumn(name = "account_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private List<Role> roles;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

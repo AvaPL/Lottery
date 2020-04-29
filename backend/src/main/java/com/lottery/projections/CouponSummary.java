@@ -17,7 +17,8 @@ import java.sql.Timestamp;
                 "         join(select C.id, count(*) as number_of_entries, sum(E.PRICE_WON) as price_won\n" +
                 "              from COUPON C\n" +
                 "                       join ENTRY E on C.ID = E.COUPON_ID\n" +
-                "              group by C.id) E on C.id = E.id")
+                "              group by C.id) E on C.id = E.id\n" +
+                "order by C.BET_TIME DESC")
 public class CouponSummary {
     @Id
     @GeneratedValue //TODO: Might be not needed.

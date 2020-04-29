@@ -19,6 +19,7 @@
 .nav-button {
     width: 65%;
     float: right;
+    margin-top: -10px;
 }
 
 .nav-bar {
