@@ -4,7 +4,6 @@ import './NumbersDropdown.css'
 import NumbersCheckbox from "./NumbersCheckbox";
 
 class NumbersDropdown extends Component {
-
     render() {
         return <div className="col-sm">
             <div className="numbers-dropdown">
@@ -15,7 +14,7 @@ class NumbersDropdown extends Component {
 
     getDropdownButton() {
         if (this.props.lotteryType)
-            return <DropdownButton className="checkbox-menu" size="lg" title="Numbers">
+            return <DropdownButton className="checkbox-menu" size="lg" title={this.getTitle()}>
                 <div className="numbers-menu overflow-auto numbers-scrollbar">
                     {[...Array(this.props.lotteryType.maxValue)].map((a, index) => <NumbersCheckbox
                         key={this.props.lotteryType.name + index}
@@ -26,6 +25,13 @@ class NumbersDropdown extends Component {
             </DropdownButton>;
         else
             return <DropdownButton className="checkbox-menu" size="lg" title="Numbers" disabled/>
+    }
+
+    getTitle = () => {
+        if (this.props.numbers.length === 0)
+            return "Numbers";
+        else
+            return this.props.numbers.sort(((a, b) => a - b)).join(", ");
     }
 }
 
