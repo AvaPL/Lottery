@@ -7,10 +7,10 @@
 }
 
 .latest-draws-container {
-    height: calc(100vh - 350px);
-    position: relative;
-    text-align: center;
-}
+     height: calc(100vh - 350px);
+     position: relative;
+     text-align: center;
+ }
 
 .latest-draws-center {
     position: absolute;
