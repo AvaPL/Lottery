@@ -1,4 +1,4 @@
-create or replace procedure random_coupons(amount in int)
+create or replace procedure random_coupons(amount in int, batch_size in int default 10000)
 as
     seed       varchar2(100);
     r_bet_time timestamp;
@@ -24,6 +24,11 @@ begin
 
             insert into COUPON
             values (COUPON_SEQUENCE.nextval, r_bet_time, r_account_id);
+
+            -- Optimize commits
+            if mod(i, batch_size) = 0 then
+                commit;
+            end if;
         end loop;
 
     commit;

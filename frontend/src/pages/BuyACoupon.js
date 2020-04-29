@@ -39,7 +39,9 @@ class BuyACoupon extends Component {
 
     handleLotteryTypeChange = (id, lotteryType) => {
         const newState = this.state;
-        newState.entries.filter(entry => entry.id === id)[0].lotteryType = lotteryType;
+        const entry = newState.entries.filter(entry => entry.id === id)[0];
+        entry.lotteryType = lotteryType;
+        entry.numbers = [];
         this.setState(newState);
     };
 
@@ -51,7 +53,7 @@ class BuyACoupon extends Component {
             });
             fetchClient.post("buy/" + AuthenticationService.getLoggedInUserName(), postData).then(() => {
                 console.log("buying successful");
-                this.props.history.push('/my-coupons')
+                this.props.history.push('/my-coupons');
             }).catch(error => {
                 this.addError("Sorry, internal server error. Please try again later.");
             })
@@ -84,6 +86,7 @@ class BuyACoupon extends Component {
                 <BuyACouponTable entries={this.state.entries} onAdd={this.handleAdd} onDelete={this.handleDelete}
                                  onCheckboxChange={this.handleCheckboxChange}
                                  onLotteryTypeChange={this.handleLotteryTypeChange} error={this.state.error}/>
+                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                 <p><a className="btn btn-buy mt-3" onClick={this.buyButtonClicked}><span
                     className="btn-buy-text">BUY</span></a></p>
             </div>

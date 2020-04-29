@@ -22,17 +22,20 @@ class Login extends Component {
         AuthenticationService.executeBasicAuthenticationService(this.state.username, this.state.password)
             .then(() => {
                 AuthenticationService.registerSuccessfulLogin(this.state.username, this.state.password);
-                window.location.replace('/');
+                const page = AuthenticationService.lastPage == null || AuthenticationService.lastPage === '/login' ? '/' : AuthenticationService.lastPage;
+                window.location.replace(page);
             })
             .catch(() => this.setState({hasLoginFailed: true}))
     };
 
     onKeyDown = event => {
-        if(event.key === 'Enter')
+        if (event.key === 'Enter')
             this.loginClicked();
     };
 
     render() {
+        if (AuthenticationService.isUserLoggedIn())
+            this.props.history.push('/');
         return (
             <div>
                 <div className="login-header-box">

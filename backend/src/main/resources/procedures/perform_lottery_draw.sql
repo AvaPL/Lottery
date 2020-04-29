@@ -57,7 +57,7 @@ begin
         end loop;
 
     -- Calculate price_won for each entry
-    for p_entry in (select ID, NUMBERS from ENTRY where LOTTERY_DRAW_ID = 2)
+    for p_entry in (select ID, NUMBERS from ENTRY where LOTTERY_DRAW_ID = p_lottery_draw_id)
         loop
             -- Calculate number of hits for this entry
             bitand_result := BITAND(r_numbers, p_entry.NUMBERS);

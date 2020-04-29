@@ -1,5 +1,5 @@
 -- Populate ACCOUNT with random data
-create or replace procedure random_accounts(amount in int)
+create or replace procedure random_accounts(amount in int, batch_size in int default 10000)
 as
     seed                          varchar2(100);
     r_credit_card_expiration_date date;
@@ -25,6 +25,11 @@ begin
             insert into ACCOUNT
             values (ACCOUNT_SEQUENCE.nextval, r_credit_card_expiration_date, r_credit_card_number, r_cvv, r_email,
                     r_password, r_username);
+
+            -- Optimize commits
+            if mod(i, batch_size) = 0 then
+                commit;
+            end if;
         end loop;
 
     commit;
