@@ -6,6 +6,7 @@ export const SESSION_TOKEN = 'token';
 // export const SESSION_LAST_PAGE = 'lastPage';
 
 class AuthenticationService {
+    static lastPage;
 
     executeBasicAuthenticationService(username, password) {
         return fetchClient.get("basicauth",
@@ -37,22 +38,6 @@ class AuthenticationService {
             return '';
         return user
     }
-
-    // addAuthorizationHeader(token) {
-    //     console.log("Adding auth header");
-    //     fetchClient.interceptors.request.use(
-    //         config => {
-    //             config.headers.Authorization = token;
-    //             return config
-    //         }
-    //     );
-    //     console.log(fetchClient.interceptors.request)
-    // }
-    //
-    // removeAuthorizationHeader() {
-    //     console.log("Removing auth header");
-    //     fetchClient.interceptors.request.use()
-    // }
 
     //TODO: Consider using this.
     //
