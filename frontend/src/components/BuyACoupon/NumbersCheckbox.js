@@ -11,14 +11,15 @@ class NumbersCheckbox extends Component {
     };
 
     render() {
-        return <li>
+        return <li className={`box ${this.state.checked ? "active" : ""}`}>
             <label>
                 <input type="checkbox" name={this.props.number}
                        disabled={!this.state.checked && this.props.isCountReached()}
                        onChange={this.handleChange}/>
                 {this.props.number}
             </label>
-        </li>;
+        </li>
+
     }
 }
 

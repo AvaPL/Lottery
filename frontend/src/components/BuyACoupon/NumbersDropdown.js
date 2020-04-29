@@ -15,8 +15,8 @@ class NumbersDropdown extends Component {
 
     getDropdownButton() {
         if (this.props.lotteryType)
-            return <DropdownButton className="checkbox-menu" size="lg" title="Numbers">
-                <div className="numbers-menu overflow-auto numbers-scrollbar">
+            return <DropdownButton size="lg" title="Numbers">
+                <div className="numbers-menu checkbox-menu overflow-auto numbers-scrollbar">
                     {[...Array(this.props.lotteryType.maxValue)].map((a, index) => <NumbersCheckbox
                         key={this.props.lotteryType.name + index}
                         number={index + 1}
