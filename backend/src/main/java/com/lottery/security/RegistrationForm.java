@@ -2,7 +2,6 @@ package com.lottery.security;
 
 import com.lottery.entities.Account;
 import lombok.Data;
-import lombok.SneakyThrows;
 import org.hibernate.validator.constraints.CreditCardNumber;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
