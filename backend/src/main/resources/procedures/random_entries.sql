@@ -1,4 +1,4 @@
-create or replace procedure random_entries(amount in int)
+create or replace procedure random_entries(amount in int, batch_size in int default 10000)
 as
     seed              varchar2(100);
     r_numbers         number(19);
@@ -46,6 +46,11 @@ begin
             r_numbers := RANDOM_NUMBERS(r_numbers_count, r_max_value);
 
             insert into ENTRY VALUES (ENTRY_SEQUENCE.nextval, r_numbers, null, r_coupon_id, r_lottery_draw_id);
+
+            -- Optimize commits
+            if mod(i, batch_size) = 0 then
+                commit;
+            end if;
         end loop;
 
     commit;

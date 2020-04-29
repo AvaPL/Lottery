@@ -1,5 +1,5 @@
 -- Populate LOTTERY_DRAW with random data
-create or replace procedure random_lottery_draws(amount in int)
+create or replace procedure random_lottery_draws(amount in int, batch_size in int default 10000)
 as
     r_draw_time     date;
     r_draw_type_id  number(19);
@@ -32,6 +32,11 @@ begin
                 loop
                     insert into PRICE values (PRICE_SEQUENCE.nextval, price_weight.HITS_COUNT, null, lottery_draw_id);
                 end loop;
+
+            -- Optimize commits
+            if mod(i, batch_size) = 0 then
+                commit;
+            end if;
         end loop;
 
     commit;
