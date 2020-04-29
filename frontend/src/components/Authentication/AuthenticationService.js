@@ -3,8 +3,6 @@ import fetchClient from './fetchClient';
 export const SESSION_USERNAME = 'username';
 export const SESSION_TOKEN = 'token';
 
-// export const SESSION_LAST_PAGE = 'lastPage';
-
 class AuthenticationService {
     static lastPage;
 
@@ -38,18 +36,6 @@ class AuthenticationService {
             return '';
         return user
     }
-
-    //TODO: Consider using this.
-    //
-    // setLastPage(page){
-    //     sessionStorage.setItem(SESSION_LAST_PAGE, page);
-    // }
-    //
-    // getLastPage(){
-    //     const page = sessionStorage.getItem(SESSION_LAST_PAGE);
-    //     sessionStorage.removeItem(SESSION_LAST_PAGE);
-    //     return page;
-    // }
 }
 
 export default new AuthenticationService()

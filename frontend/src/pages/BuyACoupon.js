@@ -51,7 +51,7 @@ class BuyACoupon extends Component {
             });
             fetchClient.post("buy/" + AuthenticationService.getLoggedInUserName(), postData).then(() => {
                 console.log("buying successful");
-                this.props.history.push('/my-coupons')
+                this.props.history.push('/my-coupons');
             }).catch(error => {
                 this.addError("Sorry, internal server error. Please try again later.");
             })

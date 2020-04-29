@@ -34,6 +34,8 @@ class Login extends Component {
     };
 
     render() {
+        if (AuthenticationService.isUserLoggedIn())
+            this.props.history.push('/');
         return (
             <div>
                 <div className="login-header-box">
