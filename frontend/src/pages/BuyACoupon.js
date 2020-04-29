@@ -39,7 +39,9 @@ class BuyACoupon extends Component {
 
     handleLotteryTypeChange = (id, lotteryType) => {
         const newState = this.state;
-        newState.entries.filter(entry => entry.id === id)[0].lotteryType = lotteryType;
+        const entry = newState.entries.filter(entry => entry.id === id)[0];
+        entry.lotteryType = lotteryType;
+        entry.numbers = [];
         this.setState(newState);
     };
 

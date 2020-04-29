@@ -82,6 +82,7 @@ class BuyACouponTableEntry extends Component {
                         <LotteryTypeDropdown lotteryTypes={this.state.lotteryTypes}
                                              onLotteryTypeChanged={this.handleLotteryTypeChange}/>
                         <NumbersDropdown lotteryType={this.state.lotteryType}
+                                         numbers={this.props.entry.numbers}
                                          onCheckboxChange={this.handleCheckboxChange}
                                          isCountReached={this.isCountReached}/>
                     </div>
