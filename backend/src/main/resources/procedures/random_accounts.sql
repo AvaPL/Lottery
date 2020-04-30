@@ -25,6 +25,7 @@ begin
             insert into ACCOUNT
             values (ACCOUNT_SEQUENCE.nextval, r_credit_card_expiration_date, r_credit_card_number, r_cvv, r_email,
                     r_password, r_username);
+            insert into ACCOUNT_ROLE values (ACCOUNT_SEQUENCE.currval, (select id from ROLE where NAME='ROLE_USER'));
 
             -- Optimize commits
             if mod(i, batch_size) = 0 then

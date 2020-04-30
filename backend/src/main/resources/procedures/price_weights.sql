@@ -51,5 +51,7 @@ begin
     values (PRICE_WEIGHT_SEQUENCE.nextval, 5, 1000, p_draw_type_id);
     insert into PRICE_WEIGHT
     values (PRICE_WEIGHT_SEQUENCE.nextval, 6, 10000, p_draw_type_id);
+
+    commit;
 end;
 /
