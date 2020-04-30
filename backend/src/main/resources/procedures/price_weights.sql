@@ -10,11 +10,11 @@ begin
     where NAME = 'Lotto';
 
     insert into PRICE_WEIGHT
-    values (PRICE_WEIGHT_SEQUENCE.nextval, 3, 10, p_draw_type_id);
+    values (PRICE_WEIGHT_SEQUENCE.nextval, 3, 50, p_draw_type_id);
     insert into PRICE_WEIGHT
-    values (PRICE_WEIGHT_SEQUENCE.nextval, 4, 100, p_draw_type_id);
+    values (PRICE_WEIGHT_SEQUENCE.nextval, 4, 500, p_draw_type_id);
     insert into PRICE_WEIGHT
-    values (PRICE_WEIGHT_SEQUENCE.nextval, 5, 1000, p_draw_type_id);
+    values (PRICE_WEIGHT_SEQUENCE.nextval, 5, 5000, p_draw_type_id);
     insert into PRICE_WEIGHT
     values (PRICE_WEIGHT_SEQUENCE.nextval, 6, 10000, p_draw_type_id);
 
@@ -24,7 +24,7 @@ begin
     where NAME = 'Mini Lotto';
 
     insert into PRICE_WEIGHT
-    values (PRICE_WEIGHT_SEQUENCE.nextval, 4, 10, p_draw_type_id);
+    values (PRICE_WEIGHT_SEQUENCE.nextval, 4, 120, p_draw_type_id);
     insert into PRICE_WEIGHT
     values (PRICE_WEIGHT_SEQUENCE.nextval, 5, 1000, p_draw_type_id);
 
@@ -34,9 +34,9 @@ begin
     where NAME = 'Multi Multi';
 
     insert into PRICE_WEIGHT
-    values (PRICE_WEIGHT_SEQUENCE.nextval, 3, 100, p_draw_type_id);
+    values (PRICE_WEIGHT_SEQUENCE.nextval, 3, 70, p_draw_type_id);
     insert into PRICE_WEIGHT
-    values (PRICE_WEIGHT_SEQUENCE.nextval, 4, 1000, p_draw_type_id);
+    values (PRICE_WEIGHT_SEQUENCE.nextval, 4, 800, p_draw_type_id);
 
     select id
     into p_draw_type_id
@@ -44,11 +44,11 @@ begin
     where NAME = 'Euro Jackpot';
 
     insert into PRICE_WEIGHT
-    values (PRICE_WEIGHT_SEQUENCE.nextval, 3, 10, p_draw_type_id);
+    values (PRICE_WEIGHT_SEQUENCE.nextval, 3, 100, p_draw_type_id);
     insert into PRICE_WEIGHT
-    values (PRICE_WEIGHT_SEQUENCE.nextval, 4, 100, p_draw_type_id);
+    values (PRICE_WEIGHT_SEQUENCE.nextval, 4, 500, p_draw_type_id);
     insert into PRICE_WEIGHT
-    values (PRICE_WEIGHT_SEQUENCE.nextval, 5, 1000, p_draw_type_id);
+    values (PRICE_WEIGHT_SEQUENCE.nextval, 5, 5000, p_draw_type_id);
     insert into PRICE_WEIGHT
     values (PRICE_WEIGHT_SEQUENCE.nextval, 6, 10000, p_draw_type_id);
 
