@@ -39,16 +39,16 @@ class MyCouponsTableEntry extends Component {
                 <div className="scroll-table-entry">
                     <div className="row">
                         <div className="col-sm">
-                            <span className="column-entry">{this.props.entry.id}</span>
+                            <span className="column-entry">{this.props.coupon.no}</span>
                         </div>
                         <div className="col-sm">
-                            <span className="column-entry">{this.props.entry.betTime}</span>
+                            <span className="column-entry">{this.props.coupon.betTime}</span>
                         </div>
                         <div className="col-sm">
-                            <span className="column-entry">{this.props.entry.numberOfEntries}</span>
+                            <span className="column-entry">{this.props.coupon.numberOfEntries}</span>
                         </div>
                         <div className="col-sm">
-                            <span className="column-entry">{this.props.entry.priceWon}</span>
+                            <span className="column-entry">{this.props.coupon.priceWon}</span>
                         </div>
                     </div>
                     <div className="expand-entry-button">
