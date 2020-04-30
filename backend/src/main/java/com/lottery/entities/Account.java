@@ -11,9 +11,11 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Entity
 @Data
@@ -41,7 +43,7 @@ public class Account implements UserDetails {
     private final String cvv;
     @OneToMany(mappedBy = "account")
     private List<Coupon> coupons;
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "account_role",
             joinColumns = @JoinColumn(name = "account_id"),
@@ -50,9 +52,7 @@ public class Account implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        //TODO: Handle different roles.
-        SimpleGrantedAuthority authority = new SimpleGrantedAuthority("ROLE_USER");
-        return Collections.singletonList(authority);
+        return roles;
     }
 
     @Override
