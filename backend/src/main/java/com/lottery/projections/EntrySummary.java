@@ -7,12 +7,12 @@ import org.hibernate.annotations.Immutable;
 import org.hibernate.annotations.Subselect;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.sql.Timestamp;
 
 @Immutable
 @Entity
 @Data
-@Subselect("select E.id, E.coupon_id, DT.name as lottery_type, LD.draw_time, E.numbers, E.price_won\n" +
+@Subselect("select E.id, E.coupon_id, DT.name as lottery_type, LD.draw_time as draw_date, E.numbers, E.price_won\n" +
            "from ENTRY E\n" +
            "         join LOTTERY_DRAW LD on E.LOTTERY_DRAW_ID = LD.ID\n" +
            "         join DRAW_TYPE DT on LD.DRAW_TYPE_ID = DT.ID")
@@ -21,7 +21,7 @@ public class EntrySummary {
     @GeneratedValue //TODO: Might be not needed.
     private Long id;
     private String lotteryType;
-    private LocalDate drawTime;
+    private Timestamp drawDate;
     private Long numbers;
     private Float priceWon;
     @ManyToOne

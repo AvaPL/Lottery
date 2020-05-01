@@ -48,3 +48,16 @@
     margin-bottom: 0;
     border: 1px solid rgba(87, 174, 255, 0.33);
 }
+
+.entries-container {
+    height: 50px;
+    position: relative;
+    text-align: center;
+}
+
+.entries-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
