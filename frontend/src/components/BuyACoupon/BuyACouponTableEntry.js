@@ -87,7 +87,7 @@ class BuyACouponTableEntry extends Component {
                                          isCountReached={this.isCountReached}/>
                     </div>
                     <div className="delete-button">
-                        <span className="delete-button-text"
+                        <span className="delete-button-text noselect"
                               onClick={() => this.props.onDelete(this.props.entry.id)}>-</span>
                     </div>
                 </div>

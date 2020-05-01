@@ -10,7 +10,7 @@ class MyCouponsTable extends Component {
     state = {
         error: null,
         isLoaded: false,
-        entries: []
+        coupons: []
     };
 
     componentDidMount() {
@@ -25,13 +25,13 @@ class MyCouponsTable extends Component {
     processCoupons() {
         return coupons => {
             coupons.forEach(this.formatCoupon());
-            this.setState({isLoaded: true, entries: coupons});
+            this.setState({isLoaded: true, coupons: coupons});
         }
     }
 
     formatCoupon() {
         return (c, i) => {
-            c.id = i + 1;
+            c.no = i + 1;
             const date = new Date(c.betTime);
             c.betTime = date.toLocaleString('en-GB', {
                 year: 'numeric',
@@ -57,12 +57,12 @@ class MyCouponsTable extends Component {
     render() {
         return (
             <div className="scroll-table overflow-auto scrollbar">
-                {this.getEntries()}
+                {this.getCoupons()}
             </div>
         );
     }
 
-    getEntries() {
+    getCoupons() {
         if (this.state.error) {
             return (
                 <div className="container">
@@ -81,8 +81,8 @@ class MyCouponsTable extends Component {
                 </div>
             );
         } else {
-            if (this.state.entries.length > 0)
-                return this.state.entries.map(entry => <MyCouponsTableEntry key={entry.id} entry={entry}/>);
+            if (this.state.coupons.length > 0)
+                return this.state.coupons.map(coupon => <MyCouponsTableEntry key={coupon.id} coupon={coupon}/>);
             else
                 return (
                     <div className="container">

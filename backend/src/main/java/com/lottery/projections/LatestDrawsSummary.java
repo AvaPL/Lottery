@@ -1,6 +1,7 @@
 package com.lottery.projections;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
+import com.lottery.converters.NumberConverter;
 import lombok.Data;
 import org.hibernate.annotations.Immutable;
 import org.hibernate.annotations.Subselect;
@@ -9,8 +10,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.List;
 
 @Immutable
 @Entity
@@ -37,10 +36,6 @@ public class LatestDrawsSummary {
 
     @JsonGetter
     public Integer[] getNumbers() {
-        List<Integer> result = new ArrayList<>();
-        for (int i = 0; i < 64; i++)
-            if ((numbers >> i & 1) == 1)
-                result.add(i + 1);
-        return result.toArray(new Integer[0]);
+        return NumberConverter.toArray(numbers);
     }
 }
