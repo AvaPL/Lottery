@@ -29,7 +29,7 @@ class MyCouponsTableEntry extends Component {
                 minute: 'numeric'
             });
             e.numbers = e.numbers.join(", ");
-            e.priceWon = e.priceWon === null ? "-" : e.priceWon + " €";
+            e.priceWon = e.priceWon === null ? "-" : e.priceWon.toLocaleString() + " €";
         };
     }
 
