@@ -25,4 +25,6 @@ Main features:
 
 | <img src="screenshots/MainPage.png"> | <img src="screenshots/Login.png"> |
 |:------------------------------------:|:---------------------------------:|
-| <img src="screenshots/Lotteries.png"> | <img src="screenshots/BuyACoupon.png"> |
+| <img src="screenshots/Register.png"> | <img src="screenshots/Lotteries.png"> |
+| <img src="screenshots/LatestDraws.png"> | <img src="screenshots/MyCoupons.png"> |
+| <img src="screenshots/BuyACoupon.png"> | |
