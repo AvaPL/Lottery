@@ -15,7 +15,8 @@ import java.sql.Timestamp;
 @Subselect("select E.id, E.coupon_id, DT.name as lottery_type, LD.draw_time as draw_date, E.numbers, E.price_won\n" +
            "from ENTRY E\n" +
            "         join LOTTERY_DRAW LD on E.LOTTERY_DRAW_ID = LD.ID\n" +
-           "         join DRAW_TYPE DT on LD.DRAW_TYPE_ID = DT.ID")
+           "         join DRAW_TYPE DT on LD.DRAW_TYPE_ID = DT.ID\n" +
+           "order by draw_date desc, lottery_type, price_won")
 public class EntrySummary {
     @Id
     @GeneratedValue //TODO: Might be not needed.
