@@ -38,7 +38,7 @@ class LotteriesTable extends Component {
                 hour: 'numeric',
                 minute: 'numeric'
             });
-            e.price = e.price === null ? "-" : e.price + " €";
+            e.price = e.price === null ? "-" : e.price.toLocaleString() + " €";
         };
     }
 
