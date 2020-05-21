@@ -4,7 +4,7 @@ spring:
       base-path: /api
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: none
     show-sql: true
   datasource:
     url: jdbc:oracle:thin:@localhost:1521:XE
