@@ -36,13 +36,14 @@ public class PerformLotteryController {
 
     @PostMapping("/performLotteryDraw/{id}")
     public ResponseEntity<Void> performLotteryDraw(@PathVariable Long id) {
-        Optional<LotteryDraw> lottery = lotteryDrawRepository.findById(id);
-        if(lottery.isEmpty()) return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        if(!lotteryDrawRepository.existsById(id))
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         log.info("Performing lottery draw with id: " + id);
         lotteryDrawRepository.performLotteryDraw(id);
+        LotteryDraw lotteryDraw = lotteryDrawRepository.findById(id).orElseThrow();
         String[] emails = getParticipantsEmails(id);
         log.info("Participants' emails: " + String.join(", ", emails));
-        emailService.sendLotteryPerformedNotifications(emails, lottery.get());
+        emailService.sendLotteryPerformedNotifications(emails, lotteryDraw);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
