@@ -22,12 +22,12 @@ import java.util.stream.Collectors;
 public class AccountController {
 
     private final AccountRepository accountRepository;
-    private final PasswordEncoder passwordEncoder;
     private final RoleRepository roleRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @Autowired
     public AccountController(AccountRepository accountRepository,
-                             PasswordEncoder passwordEncoder, RoleRepository roleRepository) {
+                             RoleRepository roleRepository, PasswordEncoder passwordEncoder) {
         this.accountRepository = accountRepository;
         this.passwordEncoder = passwordEncoder;
         this.roleRepository = roleRepository;
