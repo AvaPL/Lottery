@@ -22,15 +22,15 @@ import java.util.stream.Collectors;
 public class AccountController {
 
     private final AccountRepository accountRepository;
-    private final PasswordEncoder passwordEncoder;
     private final RoleRepository roleRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @Autowired
     public AccountController(AccountRepository accountRepository,
-                             PasswordEncoder passwordEncoder, RoleRepository roleRepository) {
+                             RoleRepository roleRepository, PasswordEncoder passwordEncoder) {
         this.accountRepository = accountRepository;
-        this.passwordEncoder = passwordEncoder;
         this.roleRepository = roleRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @GetMapping("/basicauth")
@@ -47,7 +47,7 @@ public class AccountController {
         if (bindingResult.hasErrors())
             return new ResponseEntity<>(getErrorsList(bindingResult), HttpStatus.BAD_REQUEST);
         accountRepository.save(convertToAccount(form));
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     private void validateUsername(String username,
