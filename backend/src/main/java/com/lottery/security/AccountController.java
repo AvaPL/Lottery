@@ -29,8 +29,8 @@ public class AccountController {
     public AccountController(AccountRepository accountRepository,
                              RoleRepository roleRepository, PasswordEncoder passwordEncoder) {
         this.accountRepository = accountRepository;
-        this.passwordEncoder = passwordEncoder;
         this.roleRepository = roleRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @GetMapping("/basicauth")
@@ -47,7 +47,7 @@ public class AccountController {
         if (bindingResult.hasErrors())
             return new ResponseEntity<>(getErrorsList(bindingResult), HttpStatus.BAD_REQUEST);
         accountRepository.save(convertToAccount(form));
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     private void validateUsername(String username,
